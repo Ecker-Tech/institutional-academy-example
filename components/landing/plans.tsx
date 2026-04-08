@@ -1,6 +1,3 @@
-"use client"
-
-import { useEffect, useRef } from "react"
 import { Check, Star } from "lucide-react"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -56,37 +53,17 @@ const plans = [
 ]
 
 export function Plans() {
-  const sectionRef = useRef<HTMLElement>(null)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-in", "fade-in", "slide-in-from-bottom-4")
-          }
-        })
-      },
-      { threshold: 0.1 }
-    )
-
-    const elements = sectionRef.current?.querySelectorAll(".animate-on-scroll")
-    elements?.forEach((el) => observer.observe(el))
-
-    return () => observer.disconnect()
-  }, [])
-
   return (
-    <section ref={sectionRef} id="planos" className="py-24 bg-zinc-950">
+    <section id="planos" className="py-24 bg-zinc-950">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="animate-on-scroll opacity-0 duration-700 text-3xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'var(--font-display)' }}>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'var(--font-display)' }}>
             Escolha seu{" "}
             <span className="bg-gradient-to-r from-orange-500 to-red-600 bg-clip-text text-transparent">
               Plano
             </span>
           </h2>
-          <p className="animate-on-scroll opacity-0 duration-700 delay-150 text-white/60 max-w-2xl mx-auto">
+          <p className="text-white/60 max-w-2xl mx-auto">
             Invista em você com o plano que mais combina com seus objetivos
           </p>
         </div>
@@ -95,17 +72,11 @@ export function Plans() {
           {plans.map((plan, index) => (
             <Card
               key={index}
-              className={`animate-on-scroll opacity-0 duration-700 relative overflow-hidden transition-all duration-300 ${
+              className={`relative overflow-hidden transition-all duration-300 ${
                 plan.highlighted
-                  ? "bg-gradient-to-b from-zinc-900 to-zinc-950 border-2 border-transparent bg-clip-padding scale-105 shadow-[0_0_40px_rgba(249,115,22,0.2)]"
+                  ? "bg-gradient-to-b from-zinc-900 to-zinc-950 border-2 border-orange-500 scale-105 shadow-[0_0_40px_rgba(249,115,22,0.2)]"
                   : "bg-zinc-900/50 border-zinc-800 hover:border-zinc-700"
               }`}
-              style={{ 
-                animationDelay: `${index * 100}ms`,
-                ...(plan.highlighted && {
-                  borderImage: 'linear-gradient(to bottom, #f97316, #dc2626) 1',
-                })
-              }}
             >
               {plan.highlighted && (
                 <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-orange-500 to-red-600" />

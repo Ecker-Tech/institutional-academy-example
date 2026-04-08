@@ -92,7 +92,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-zinc-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="border-t border-zinc-800 pt-8 pb-20 md:pb-0 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-white/40 text-sm">
             &copy; {new Date().getFullYear()} RK Fitness Center. Todos os direitos reservados.
           </p>

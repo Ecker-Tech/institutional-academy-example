@@ -1,6 +1,3 @@
-"use client"
-
-import { useEffect, useRef } from "react"
 import { MapPin, Clock, Navigation } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -12,59 +9,46 @@ const schedule = [
 ]
 
 export function Location() {
-  const sectionRef = useRef<HTMLElement>(null)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-in", "fade-in", "slide-in-from-bottom-4")
-          }
-        })
-      },
-      { threshold: 0.1 }
-    )
-
-    const elements = sectionRef.current?.querySelectorAll(".animate-on-scroll")
-    elements?.forEach((el) => observer.observe(el))
-
-    return () => observer.disconnect()
-  }, [])
-
   return (
-    <section ref={sectionRef} id="contato" className="py-24 bg-zinc-950">
+    <section id="contato" className="py-24 bg-zinc-950">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="animate-on-scroll opacity-0 duration-700 text-3xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'var(--font-display)' }}>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'var(--font-display)' }}>
             Venha nos{" "}
             <span className="bg-gradient-to-r from-orange-500 to-red-600 bg-clip-text text-transparent">
               conhecer
             </span>
           </h2>
-          <p className="animate-on-scroll opacity-0 duration-700 delay-150 text-white/60 max-w-2xl mx-auto">
+          <p className="text-white/60 max-w-2xl mx-auto">
             Estamos localizados no coração de Francisco Beltrão, prontos para receber você
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          <Card className="animate-on-scroll opacity-0 duration-700 bg-zinc-900/50 border-zinc-800 overflow-hidden">
-            <div className="aspect-video relative">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3602.1234567890123!2d-53.0550000!3d-26.0800000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDA0JzQ4LjAiUyA1M8KwMDMnMTguMCJX!5e0!3m2!1spt-BR!2sbr!4v1234567890"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="absolute inset-0"
-              />
-            </div>
-          </Card>
+          <a 
+            href="https://maps.app.goo.gl/yM7BsfwbKPhPLnCp8"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block"
+          >
+            <Card className="bg-zinc-900/50 border-zinc-800 overflow-hidden hover:border-orange-500/50 transition-colors">
+              <div className="aspect-video relative">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3602.1234567890123!2d-53.0550000!3d-26.0800000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDA0JzQ4LjAiUyA1M8KwMDMnMTguMCJX!5e0!3m2!1spt-BR!2sbr!4v1234567890"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0, pointerEvents: 'none' }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="absolute inset-0"
+                />
+              </div>
+            </Card>
+          </a>
 
           <div className="space-y-6">
-            <Card className="animate-on-scroll opacity-0 duration-700 delay-150 bg-zinc-900/50 border-zinc-800">
+            <Card className="bg-zinc-900/50 border-zinc-800">
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500/20 to-red-600/20 flex items-center justify-center flex-shrink-0">
@@ -80,7 +64,7 @@ export function Location() {
               </CardContent>
             </Card>
 
-            <Card className="animate-on-scroll opacity-0 duration-700 delay-300 bg-zinc-900/50 border-zinc-800">
+            <Card className="bg-zinc-900/50 border-zinc-800">
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500/20 to-red-600/20 flex items-center justify-center flex-shrink-0">
@@ -104,10 +88,10 @@ export function Location() {
             <Button
               asChild
               size="lg"
-              className="animate-on-scroll opacity-0 duration-700 delay-500 w-full bg-zinc-800 hover:bg-zinc-700 text-white"
+              className="w-full bg-zinc-800 hover:bg-zinc-700 text-white"
             >
               <a
-                href="https://www.google.com/maps/dir/?api=1&destination=R.+São+Joaquim,+39,+Cristo+Rei,+Francisco+Beltrão+-+PR,+85602-080"
+                href="https://maps.app.goo.gl/yM7BsfwbKPhPLnCp8"
                 target="_blank"
                 rel="noopener noreferrer"
               >
