@@ -1,6 +1,7 @@
 import { Header } from "@/components/landing/header"
 import { Hero } from "@/components/landing/hero"
 import { Gallery } from "@/components/landing/gallery"
+import { Services } from "@/components/landing/services"
 import { Features } from "@/components/landing/features"
 import { Plans } from "@/components/landing/plans"
 import { Results } from "@/components/landing/results"
@@ -15,6 +16,7 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <Services />
         <Gallery />
         <Features />
         <Plans />
