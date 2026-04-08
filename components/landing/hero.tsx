@@ -1,36 +1,11 @@
-"use client"
-
-import { useEffect, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Flame } from "lucide-react"
 
 export function Hero() {
-  const sectionRef = useRef<HTMLElement>(null)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-in", "fade-in", "slide-in-from-bottom-8")
-          }
-        })
-      },
-      { threshold: 0.1 }
-    )
-
-    const elements = sectionRef.current?.querySelectorAll(".animate-on-scroll")
-    elements?.forEach((el) => observer.observe(el))
-
-    return () => observer.disconnect()
-  }, [])
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
-    >
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
@@ -44,25 +19,25 @@ export function Hero() {
         <div className="max-w-4xl mx-auto space-y-8">
           <Badge
             variant="outline"
-            className="animate-on-scroll opacity-0 duration-700 border-orange-500/50 text-orange-400 bg-orange-500/10 px-4 py-2 text-sm"
+            className="border-orange-500/50 text-orange-400 bg-orange-500/10 px-4 py-2 text-sm"
           >
             <Flame className="w-4 h-4 mr-2" />
             Vagas limitadas este mês
           </Badge>
 
-          <h1 className="animate-on-scroll opacity-0 duration-700 delay-150 text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight" style={{ fontFamily: 'var(--font-display)' }}>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight" style={{ fontFamily: 'var(--font-display)' }}>
             Sua melhor versão{" "}
             <span className="bg-gradient-to-r from-orange-500 to-red-600 bg-clip-text text-transparent">
               começa aqui
             </span>
           </h1>
 
-          <p className="animate-on-scroll opacity-0 duration-700 delay-300 text-lg md:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed">
             Treine com foco em saúde, estética e performance em um ambiente premium. 
             Equipamentos de ponta e acompanhamento profissional para você alcançar seus objetivos.
           </p>
 
-          <div className="animate-on-scroll opacity-0 duration-700 delay-500 pt-4">
+          <div className="pt-4">
             <Button
               asChild
               size="lg"
@@ -78,7 +53,7 @@ export function Hero() {
             </Button>
           </div>
 
-          <div className="animate-on-scroll opacity-0 duration-700 delay-700 flex items-center justify-center gap-8 pt-8 text-white/60 text-sm">
+          <div className="flex items-center justify-center gap-8 pt-8 text-white/60 text-sm">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-green-500" />
               <span>Aberto agora</span>

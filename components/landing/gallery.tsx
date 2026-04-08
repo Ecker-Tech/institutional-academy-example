@@ -1,6 +1,3 @@
-"use client"
-
-import { useEffect, useRef } from "react"
 import Image from "next/image"
 
 const galleryItems = [
@@ -37,37 +34,17 @@ const galleryItems = [
 ]
 
 export function Gallery() {
-  const sectionRef = useRef<HTMLElement>(null)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-in", "fade-in", "slide-in-from-bottom-4")
-          }
-        })
-      },
-      { threshold: 0.1 }
-    )
-
-    const elements = sectionRef.current?.querySelectorAll(".animate-on-scroll")
-    elements?.forEach((el) => observer.observe(el))
-
-    return () => observer.disconnect()
-  }, [])
-
   return (
-    <section ref={sectionRef} id="modalidades" className="py-24 bg-black">
+    <section id="modalidades" className="py-24 bg-black">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="animate-on-scroll opacity-0 duration-700 text-3xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'var(--font-display)' }}>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'var(--font-display)' }}>
             Nossa{" "}
             <span className="bg-gradient-to-r from-orange-500 to-red-600 bg-clip-text text-transparent">
               Estrutura
             </span>
           </h2>
-          <p className="animate-on-scroll opacity-0 duration-700 delay-150 text-white/60 max-w-2xl mx-auto">
+          <p className="text-white/60 max-w-2xl mx-auto">
             Ambiente premium com equipamentos de última geração para você treinar com conforto e segurança
           </p>
         </div>
@@ -76,8 +53,7 @@ export function Gallery() {
           {galleryItems.map((item, index) => (
             <div
               key={index}
-              className={`animate-on-scroll opacity-0 duration-700 relative group overflow-hidden rounded-2xl ${item.span}`}
-              style={{ animationDelay: `${index * 100}ms` }}
+              className={`relative group overflow-hidden rounded-2xl ${item.span}`}
             >
               <Image
                 src={item.src}
