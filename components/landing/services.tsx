@@ -43,7 +43,7 @@ export function Services() {
             return (
               <Card
                 key={index}
-                className="bg-zinc-900/50 border-zinc-800 hover:border-orange-500/50 transition-all duration-300 p-8 group overflow-hidden"
+                className="relative bg-zinc-900/50 border-zinc-800 hover:border-orange-500/50 transition-all duration-300 p-8 group overflow-hidden"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-orange-500/0 to-red-600/0 group-hover:from-orange-500/10 group-hover:to-red-600/10 transition-all duration-300" />
                 <div className="relative z-10">
