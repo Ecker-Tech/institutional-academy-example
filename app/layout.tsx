@@ -1,32 +1,38 @@
-import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import type { Metadata, Viewport } from 'next'
+import { Inter, Oswald } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const _geist = Geist({ subsets: ["latin"] });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
+const inter = Inter({ 
+  subsets: ["latin"],
+  variable: '--font-inter'
+})
+
+const oswald = Oswald({ 
+  subsets: ["latin"],
+  variable: '--font-oswald',
+  weight: ['400', '500', '600', '700']
+})
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.app',
+  title: 'RK Fitness Center | Construa sua melhor versão',
+  description: 'Academia premium em Francisco Beltrão. Musculação para saúde, estética e performance. Ambiente exclusivo e acompanhamento profissional.',
+  keywords: ['academia', 'musculação', 'fitness', 'Francisco Beltrão', 'treino personalizado'],
   icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
+    icon: '/icon.png',
+    apple: '/icon.png',
   },
+  openGraph: {
+    title: 'RK Fitness Center | Construa sua melhor versão',
+    description: 'Academia premium em Francisco Beltrão. Musculação para saúde, estética e performance.',
+    images: ['/logo.png'],
+  },
+}
+
+export const viewport: Viewport = {
+  themeColor: '#000000',
+  width: 'device-width',
+  initialScale: 1,
 }
 
 export default function RootLayout({
@@ -35,8 +41,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className="font-sans antialiased">
+    <html lang="pt-BR" className="scroll-smooth">
+      <body className={`${inter.variable} ${oswald.variable} font-sans antialiased bg-black text-white`}>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
