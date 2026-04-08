@@ -29,10 +29,18 @@ export function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="#modalidades"
+                  href="#servicos"
                   className="text-white/60 hover:text-white transition-colors text-sm"
                 >
-                  Modalidades
+                  Serviços
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="#estrutura"
+                  className="text-white/60 hover:text-white transition-colors text-sm"
+                >
+                  Estrutura
                 </Link>
               </li>
               <li>
@@ -49,6 +57,14 @@ export function Footer() {
                   className="text-white/60 hover:text-white transition-colors text-sm"
                 >
                   Resultados
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="#depoimentos"
+                  className="text-white/60 hover:text-white transition-colors text-sm"
+                >
+                  Depoimentos
                 </Link>
               </li>
               <li>
