@@ -1,6 +1,7 @@
-import Image from "next/image"
-import Link from "next/link"
-import { Instagram, Phone, MapPin } from "lucide-react"
+import Image from "next/image";
+import Link from "next/link";
+import { Phone, MapPin, Instagram } from "lucide-react";
+import { InstagramIcon } from "../icons/instagram";
 
 export function Footer() {
   return (
@@ -18,7 +19,8 @@ export function Footer() {
               />
             </Link>
             <p className="text-white/60 text-sm">
-              Construa sua melhor versão com treinos personalizados e acompanhamento profissional.
+              Construa sua melhor versão com treinos personalizados e
+              acompanhamento profissional.
             </p>
           </div>
 
@@ -26,22 +28,34 @@ export function Footer() {
             <h4 className="font-bold text-white mb-4">Links Rápidos</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="#modalidades" className="text-white/60 hover:text-white transition-colors text-sm">
+                <Link
+                  href="#modalidades"
+                  className="text-white/60 hover:text-white transition-colors text-sm"
+                >
                   Modalidades
                 </Link>
               </li>
               <li>
-                <Link href="#planos" className="text-white/60 hover:text-white transition-colors text-sm">
+                <Link
+                  href="#planos"
+                  className="text-white/60 hover:text-white transition-colors text-sm"
+                >
                   Planos
                 </Link>
               </li>
               <li>
-                <Link href="#resultados" className="text-white/60 hover:text-white transition-colors text-sm">
+                <Link
+                  href="#resultados"
+                  className="text-white/60 hover:text-white transition-colors text-sm"
+                >
                   Resultados
                 </Link>
               </li>
               <li>
-                <Link href="#contato" className="text-white/60 hover:text-white transition-colors text-sm">
+                <Link
+                  href="#contato"
+                  className="text-white/60 hover:text-white transition-colors text-sm"
+                >
                   Contato
                 </Link>
               </li>
@@ -78,14 +92,16 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-white/60 hover:text-white transition-colors text-sm"
                 >
-                  <Instagram className="w-4 h-4" />
+                  <InstagramIcon />
                   @rk.fitnesscenter
                 </a>
               </li>
               <li>
                 <div className="flex items-start gap-2 text-white/60 text-sm">
                   <MapPin className="w-4 h-4 flex-shrink-0 mt-0.5" />
-                  <span>R. São Joaquim, 39, Cristo Rei, Francisco Beltrão - PR</span>
+                  <span>
+                    R. São Joaquim, 39, Cristo Rei, Francisco Beltrão - PR
+                  </span>
                 </div>
               </li>
             </ul>
@@ -94,21 +110,11 @@ export function Footer() {
 
         <div className="border-t border-zinc-800 pt-8 pb-20 md:pb-0 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-white/40 text-sm">
-            &copy; {new Date().getFullYear()} RK Fitness Center. Todos os direitos reservados.
+            &copy; {new Date().getFullYear()} Academia RK Fitness Center. Todos
+            os direitos reservados.
           </p>
-          <div className="flex items-center gap-4">
-            <a
-              href="https://www.instagram.com/rk.fitnesscenter"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full bg-zinc-800 hover:bg-zinc-700 flex items-center justify-center transition-colors"
-              aria-label="Instagram"
-            >
-              <Instagram className="w-5 h-5 text-white" />
-            </a>
-          </div>
         </div>
       </div>
     </footer>
-  )
+  );
 }
