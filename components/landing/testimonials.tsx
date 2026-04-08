@@ -1,47 +1,54 @@
-import Image from "next/image"
-import { Star } from "lucide-react"
-import { Card, CardContent } from "@/components/ui/card"
+import Image from "next/image";
+import { Star } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 
 const testimonials = [
   {
-    name: "Mariana Costa",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop",
+    name: "Cristiano Ribeiro",
+    image: "/reviews/cristiano.png",
     rating: 5,
-    text: "A RK mudou minha vida! Em 6 meses consegui resultados que não tinha conseguido em anos. Equipe incrível e ambiente motivador.",
+    text: "Ótima academia! Os instrutores são ótimos profissionais, comprometidos com o bem-estar dos alunos. Os aparelhos são modernos, com ótima ergonomia. O pessoal da recepção é sempre muito simpático e competente. Recomendo sempre!",
   },
   {
-    name: "Pedro Henrique",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop",
+    name: "Carmen Melo",
+    image: "/reviews/carmen.png",
     rating: 5,
-    text: "Melhor academia da região. Equipamentos de primeira qualidade e os professores realmente se importam com o seu progresso.",
+    text: "Gosto da academia porque é um lugar tranquilo para se exercitar. Os aparelhos são de boa qualidade, e os instrutores são bem tranquilos. Respeitam o seu tempo e estão sempre atentos, auxiliando durante todo o treino.",
   },
   {
-    name: "Juliana Mendes",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200&auto=format&fit=crop",
+    name: "Rodrigo Melo",
+    image: "/reviews/rodrigo.png",
     rating: 5,
-    text: "Ambiente limpo, organizado e bem climatizado. Me sinto em casa treinando aqui. Super recomendo para quem busca qualidade!",
+    text: "Academia bem equipada, não é preciso esperar para usar os aparelhos; é chegar e malhar. Espaço amplo e excelente atendimento.",
   },
   {
-    name: "Fernando Lima",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop",
+    name: "Odlanyer Antonio Ferreira",
+    image: "/reviews/odlanyer.png",
     rating: 5,
-    text: "O acompanhamento personalizado fez toda diferença nos meus resultados. Profissionais muito competentes e atenciosos.",
+    text: "Lugar acessível para quem deseja fazer academia. Excelente localização, ambiente limpo e higiênico, além de ótimos professores. Gostei muito.",
   },
-]
+];
 
 export function Testimonials() {
   return (
-    <section className="py-24 bg-gradient-to-b from-black to-zinc-950">
+    <section
+      id="depoimentos"
+      className="py-24 bg-gradient-to-b from-black to-zinc-950"
+    >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'var(--font-display)' }}>
+          <h2
+            className="text-3xl md:text-5xl font-bold mb-4"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
             O que nossos{" "}
             <span className="bg-gradient-to-r from-orange-500 to-red-600 bg-clip-text text-transparent">
               alunos dizem
             </span>
           </h2>
           <p className="text-white/60 max-w-2xl mx-auto">
-            Depoimentos reais de quem já transformou sua vida na RK Fitness Center
+            Depoimentos reais de quem já transformou sua vida na RK Fitness
+            Center
           </p>
         </div>
 
@@ -64,12 +71,14 @@ export function Testimonials() {
                   <div>
                     <h3 className="font-bold text-white">{testimonial.name}</h3>
                     <div className="flex gap-0.5">
-                      {Array.from({ length: testimonial.rating }).map((_, i) => (
-                        <Star
-                          key={i}
-                          className="w-4 h-4 fill-orange-500 text-orange-500"
-                        />
-                      ))}
+                      {Array.from({ length: testimonial.rating }).map(
+                        (_, i) => (
+                          <Star
+                            key={i}
+                            className="w-4 h-4 fill-orange-500 text-orange-500"
+                          />
+                        ),
+                      )}
                     </div>
                   </div>
                 </div>
@@ -80,5 +89,5 @@ export function Testimonials() {
         </div>
       </div>
     </section>
-  )
+  );
 }
