@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import { MessageCircle } from "lucide-react"
+import { MessageCircle } from "lucide-react";
 
 export function WhatsAppButton() {
   return (
     <a
-      href="https://wa.me/554699721175?text=Olá,%20quero%20agendar%20uma%20aula%20experimental%20na%20RK%20Fitness%20Center"
+      href="https://wa.me/5545991023526?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20aula%20experimental%20na%20academia."
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-6 right-6 z-50 group"
@@ -21,5 +21,5 @@ export function WhatsAppButton() {
         Agende sua aula!
       </span>
     </a>
-  )
+  );
 }

@@ -1,9 +1,8 @@
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Flame } from "lucide-react"
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Flame } from "lucide-react";
 
 export function Hero() {
-
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div
@@ -12,7 +11,7 @@ export function Hero() {
           backgroundImage: `url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop')`,
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black" />
+        <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/60 to-black" />
       </div>
 
       <div className="relative z-10 container mx-auto px-4 text-center pt-20">
@@ -25,26 +24,30 @@ export function Hero() {
             Vagas limitadas este mês
           </Badge>
 
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight" style={{ fontFamily: 'var(--font-display)' }}>
+          <h1
+            className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
             Sua melhor versão{" "}
-            <span className="bg-gradient-to-r from-orange-500 to-red-600 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-orange-500 to-red-600 bg-clip-text text-transparent">
               começa aqui
             </span>
           </h1>
 
           <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed">
-            Treine com foco em saúde, estética e performance em um ambiente premium. 
-            Equipamentos de ponta e acompanhamento profissional para você alcançar seus objetivos.
+            Treine com foco em saúde, estética e performance em um ambiente
+            premium. Equipamentos de ponta e acompanhamento profissional para
+            você alcançar seus objetivos.
           </p>
 
           <div className="pt-4">
             <Button
               asChild
               size="lg"
-              className="relative bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-bold text-lg px-10 py-7 rounded-full shadow-[0_0_40px_rgba(249,115,22,0.4)] hover:shadow-[0_0_60px_rgba(249,115,22,0.6)] transition-all duration-300"
+              className="relative bg-linear-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-bold text-lg px-10 py-7 rounded-full shadow-[0_0_40px_rgba(249,115,22,0.4)] hover:shadow-[0_0_60px_rgba(249,115,22,0.6)] transition-all duration-300"
             >
               <a
-                href="https://wa.me/554699721175?text=Olá,%20quero%20agendar%20uma%20aula%20experimental%20na%20RK%20Fitness%20Center"
+                href="https://wa.me/5545991023526?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20aula%20experimental%20na%20academia."
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -70,5 +73,5 @@ export function Hero() {
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { useState, useRef, useEffect } from "react"
-import Image from "next/image"
-import { ChevronLeft, ChevronRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { useState, useRef, useEffect } from "react";
+import Image from "next/image";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const structureItems = [
   {
@@ -31,50 +31,56 @@ const structureItems = [
     alt: "Área cardio",
     title: "Cardio",
   },
-]
+];
 
 export function Gallery() {
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const [autoPlay, setAutoPlay] = useState(true)
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null)
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [autoPlay, setAutoPlay] = useState(true);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % structureItems.length)
-    setAutoPlay(false)
-  }
+    setCurrentSlide((prev) => (prev + 1) % structureItems.length);
+    setAutoPlay(false);
+  };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + structureItems.length) % structureItems.length)
-    setAutoPlay(false)
-  }
+    setCurrentSlide(
+      (prev) => (prev - 1 + structureItems.length) % structureItems.length,
+    );
+    setAutoPlay(false);
+  };
 
   useEffect(() => {
     if (autoPlay) {
       timeoutRef.current = setTimeout(() => {
-        setCurrentSlide((prev) => (prev + 1) % structureItems.length)
-      }, 5000)
+        setCurrentSlide((prev) => (prev + 1) % structureItems.length);
+      }, 5000);
     }
 
     return () => {
-      if (timeoutRef.current) clearTimeout(timeoutRef.current)
-    }
-  }, [currentSlide, autoPlay])
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, [currentSlide, autoPlay]);
 
-  const handleMouseEnter = () => setAutoPlay(false)
-  const handleMouseLeave = () => setAutoPlay(true)
+  const handleMouseEnter = () => setAutoPlay(false);
+  const handleMouseLeave = () => setAutoPlay(true);
 
   return (
-    <section id="estrutura" className="py-24 bg-black">
+    <section id="estrutura" className="py-24 bg-black scroll-mt-24">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'var(--font-display)' }}>
+          <h2
+            className="text-3xl md:text-5xl font-bold mb-4"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
             Nossa{" "}
-            <span className="bg-gradient-to-r from-orange-500 to-red-600 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-orange-500 to-red-600 bg-clip-text text-transparent">
               Estrutura
             </span>
           </h2>
           <p className="text-white/60 max-w-2xl mx-auto">
-            Ambiente premium com equipamentos de última geração para você treinar com conforto e segurança
+            Ambiente premium com equipamentos de última geração para você
+            treinar com conforto e segurança
           </p>
         </div>
 
@@ -84,7 +90,7 @@ export function Gallery() {
           onMouseLeave={handleMouseLeave}
         >
           {/* Carrossel */}
-          <div className="relative h-96 md:h-[500px]">
+          <div className="relative h-96 md:h-125">
             {structureItems.map((item, index) => (
               <div
                 key={index}
@@ -99,9 +105,11 @@ export function Gallery() {
                   className="object-cover"
                   priority={index === 0}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent" />
                 <div className="absolute bottom-8 left-8">
-                  <h3 className="text-white font-bold text-2xl md:text-3xl">{item.title}</h3>
+                  <h3 className="text-white font-bold text-2xl md:text-3xl">
+                    {item.title}
+                  </h3>
                 </div>
               </div>
             ))}
@@ -132,8 +140,8 @@ export function Gallery() {
               <button
                 key={index}
                 onClick={() => {
-                  setCurrentSlide(index)
-                  setAutoPlay(false)
+                  setCurrentSlide(index);
+                  setAutoPlay(false);
                 }}
                 className={`h-2 rounded-full transition-all duration-300 ${
                   index === currentSlide
@@ -147,5 +155,5 @@ export function Gallery() {
         </div>
       </div>
     </section>
-  )
+  );
 }
