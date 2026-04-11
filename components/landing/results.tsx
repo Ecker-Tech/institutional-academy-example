@@ -42,7 +42,7 @@ export function Results() {
             style={{ fontFamily: "var(--font-display)" }}
           >
             Resultados{" "}
-            <span className="bg-gradient-to-r from-orange-500 to-red-600 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-orange-500 to-red-600 bg-clip-text text-transparent">
               Reais
             </span>
           </h2>
@@ -60,7 +60,7 @@ export function Results() {
             >
               <div className="relative">
                 <div className="grid grid-cols-2">
-                  <div className="relative aspect-[3/4]">
+                  <div className="relative aspect-3/4">
                     <Image
                       src={item.before}
                       alt={`${item.name} antes`}
@@ -71,14 +71,14 @@ export function Results() {
                       ANTES
                     </div>
                   </div>
-                  <div className="relative aspect-[3/4]">
+                  <div className="relative aspect-3/4">
                     <Image
                       src={item.after}
                       alt={`${item.name} depois`}
                       fill
                       className="object-cover"
                     />
-                    <div className="absolute bottom-2 right-2 bg-gradient-to-r from-orange-500 to-red-600 px-2 py-1 rounded text-xs font-medium text-white">
+                    <div className="absolute bottom-2 right-2 bg-linear-to-r from-orange-500 to-red-600 px-2 py-1 rounded text-xs font-medium text-white">
                       DEPOIS
                     </div>
                   </div>

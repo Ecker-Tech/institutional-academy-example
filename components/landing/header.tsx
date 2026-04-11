@@ -39,16 +39,27 @@ export function Header() {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          <Link href="/" className="relative w-16 h-16">
-            <Image
-              src="/logo.png"
-              alt="RK Fitness Center"
-              fill
-              className="object-contain"
-              priority
-            />
-          </Link>
+          <div className="flex items-center gap-3">
+            <Link
+              href="/"
+              className="relative w-14 h-14 rounded-full overflow-hidden border border-white/10 shadow-md"
+            >
+              <Image
+                src="/logo.png"
+                alt="Flex Force"
+                fill
+                className="object-cover"
+                priority
+              />
+            </Link>
 
+            <div>
+              <span className="text-xl font-bold text-primary">FLEX FORCE</span>
+              <p className="text-xs text-muted-foreground tracking-widest">
+                ACADEMIA
+              </p>
+            </div>
+          </div>
           <nav className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <Link
@@ -64,10 +75,10 @@ export function Header() {
           <div className="hidden md:block">
             <Button
               asChild
-              className="bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-semibold px-6"
+              className="bg-linear-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-semibold px-6"
             >
               <a
-                href="https://wa.me/554699721175?text=Olá,%20quero%20agendar%20uma%20aula%20experimental%20na%20RK%20Fitness%20Center"
+                href="https://wa.me/5545991023526?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20aula%20experimental%20na%20academia."
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -101,10 +112,10 @@ export function Header() {
             ))}
             <Button
               asChild
-              className="bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-semibold mt-4"
+              className="bg-linear-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-semibold mt-4"
             >
               <a
-                href="https://wa.me/554699721175?text=Olá,%20quero%20agendar%20uma%20aula%20experimental%20na%20RK%20Fitness%20Center"
+                href="https://wa.me/5545991023526?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20aula%20experimental%20na%20academia."
                 target="_blank"
                 rel="noopener noreferrer"
               >

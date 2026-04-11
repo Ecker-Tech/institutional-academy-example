@@ -4,26 +4,26 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const testimonials = [
   {
-    name: "Cristiano Ribeiro",
-    image: "/reviews/cristiano.png",
+    name: "Eduardo", //"Cristiano Ribeiro",
+    image: "/reviews/example-1.png",
     rating: 5,
     text: "Ótima academia! Os instrutores são ótimos profissionais, comprometidos com o bem-estar dos alunos. Os aparelhos são modernos, com ótima ergonomia. O pessoal da recepção é sempre muito simpático e competente. Recomendo sempre!",
   },
   {
-    name: "Carmen Melo",
-    image: "/reviews/carmen.png",
+    name: "Julia", //"Carmen Melo",
+    image: "/reviews/example-3.png",
     rating: 5,
     text: "Gosto da academia porque é um lugar tranquilo para se exercitar. Os aparelhos são de boa qualidade, e os instrutores são bem tranquilos. Respeitam o seu tempo e estão sempre atentos, auxiliando durante todo o treino.",
   },
   {
-    name: "Rodrigo Melo",
-    image: "/reviews/rodrigo.png",
+    name: "Pedro", //"Rodrigo Melo",
+    image: "/reviews/example-2.png",
     rating: 5,
     text: "Academia bem equipada, não é preciso esperar para usar os aparelhos; é chegar e malhar. Espaço amplo e excelente atendimento.",
   },
   {
-    name: "Odlanyer Antonio Ferreira",
-    image: "/reviews/odlanyer.png",
+    name: "Jaqueline", //"Odlanyer Antonio Ferreira",
+    image: "/reviews/example-4.png",
     rating: 5,
     text: "Lugar acessível para quem deseja fazer academia. Excelente localização, ambiente limpo e higiênico, além de ótimos professores. Gostei muito.",
   },
@@ -33,7 +33,7 @@ export function Testimonials() {
   return (
     <section
       id="depoimentos"
-      className="py-24 bg-gradient-to-b from-black to-zinc-950"
+      className="py-24 bg-linear-to-b from-black to-zinc-950"
     >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
@@ -42,13 +42,12 @@ export function Testimonials() {
             style={{ fontFamily: "var(--font-display)" }}
           >
             O que nossos{" "}
-            <span className="bg-gradient-to-r from-orange-500 to-red-600 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-orange-500 to-red-600 bg-clip-text text-transparent">
               alunos dizem
             </span>
           </h2>
           <p className="text-white/60 max-w-2xl mx-auto">
-            Depoimentos reais de quem já transformou sua vida na RK Fitness
-            Center
+            Depoimentos reais de quem já transformou sua vida na Flex Force
           </p>
         </div>
 
