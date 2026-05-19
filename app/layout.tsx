@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Oswald } from "next/font/google";
-import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const inter = Inter({
@@ -54,7 +53,6 @@ export default function RootLayout({
         className={`${inter.variable} ${oswald.variable} font-sans antialiased bg-black text-white`}
       >
         {children}
-        {process.env.NODE_ENV === "production" && <Analytics />}
       </body>
     </html>
   );
