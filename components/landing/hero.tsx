@@ -1,75 +1,76 @@
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Flame } from "lucide-react";
+import { Zap, ArrowRight } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop')`,
-        }}
-      >
-        <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/60 to-black" />
-      </div>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+      {/* Animated background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-card to-background" />
+      
+      {/* Pulse glow effect */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-primary/20 rounded-full blur-3xl opacity-30 animate-pulse" />
+      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-secondary/20 rounded-full blur-3xl opacity-20 animate-pulse" />
 
-      <div className="relative z-10 container mx-auto px-4 text-center pt-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-4xl mx-auto space-y-8">
+          {/* Badge */}
           <Badge
             variant="outline"
-            className="border-orange-500/50 text-orange-400 bg-orange-500/10 px-4 py-2 text-sm"
+            className="border-primary/50 text-primary bg-primary/10 px-4 py-2 text-sm inline-flex items-center gap-2"
           >
-            <Flame className="w-4 h-4 mr-2" />
-            Vagas limitadas este mês
+            <Zap className="w-4 h-4" />
+            Transformação começa agora
           </Badge>
 
-          <h1
-            className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
-            Sua melhor versão{" "}
-            <span className="bg-linear-to-r from-orange-500 to-red-600 bg-clip-text text-transparent">
-              começa aqui
+          {/* Main Heading */}
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight float-up-animation">
+            <span className="block text-foreground">Alcance seu</span>
+            <span className="block bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent leading-tight">
+              Potencial Máximo
             </span>
           </h1>
 
-          <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed">
-            Treine com foco em saúde, estética e performance em um ambiente
-            premium. Equipamentos de ponta e acompanhamento profissional para
-            você alcançar seus objetivos.
+          {/* Subheading */}
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            PULSAR é mais que uma academia premium. É uma comunidade de elite onde força, disciplina e excelência se encontram. Transforme seu corpo e sua mente.
           </p>
 
-          <div className="pt-4">
-            <Button
-              asChild
-              size="lg"
-              className="relative bg-linear-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-bold text-lg px-10 py-7 rounded-full shadow-[0_0_40px_rgba(249,115,22,0.4)] hover:shadow-[0_0_60px_rgba(249,115,22,0.6)] transition-all duration-300"
-            >
-              <a
-                href="https://wa.me/5545991023526?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20aula%20experimental%20na%20academia."
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Quero minha Aula Experimental
-              </a>
-            </Button>
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6">
+            <button className="group relative px-8 py-4 font-semibold text-foreground overflow-hidden rounded-lg">
+              <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary group-hover:opacity-110 transition-opacity rounded-lg" />
+              <span className="relative flex items-center justify-center gap-2">
+                Agende uma Aula
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </span>
+            </button>
+            <button className="px-8 py-4 font-semibold text-foreground border-2 border-primary hover:bg-primary/10 transition-colors rounded-lg">
+              Conheça os Planos
+            </button>
           </div>
 
-          <div className="flex items-center justify-center gap-8 pt-8 text-white/60 text-sm">
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-green-500" />
-              <span>Aberto agora</span>
+          {/* Trust indicators */}
+          <div className="grid grid-cols-3 gap-4 pt-12 text-center">
+            <div className="space-y-2">
+              <div className="text-3xl font-bold text-primary">500+</div>
+              <p className="text-sm text-muted-foreground">Membros Ativos</p>
             </div>
-            <div>+500 alunos ativos</div>
-            <div className="hidden sm:block">Desde 2010</div>
+            <div className="space-y-2">
+              <div className="text-3xl font-bold text-secondary">14+</div>
+              <p className="text-sm text-muted-foreground">Anos de Excelência</p>
+            </div>
+            <div className="space-y-2">
+              <div className="text-3xl font-bold text-primary">99%</div>
+              <p className="text-sm text-muted-foreground">Satisfação</p>
+            </div>
           </div>
         </div>
       </div>
 
+      {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 rounded-full border-2 border-white/30 flex items-start justify-center p-2">
-          <div className="w-1.5 h-3 bg-white/50 rounded-full" />
+        <div className="w-6 h-10 rounded-full border-2 border-primary/30 flex items-start justify-center p-2">
+          <div className="w-1.5 h-3 bg-primary/50 rounded-full animate-pulse" />
         </div>
       </div>
     </section>
