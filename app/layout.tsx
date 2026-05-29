@@ -14,30 +14,31 @@ const oswald = Oswald({
 });
 
 export const metadata: Metadata = {
-  title: "Flex Force | Construa sua melhor versão", //'RK Fitness Center | Construa sua melhor versão',
+  title: "PULSAR | Academia Premium de Elite",
   description:
-    "Academia premium em Francisco Beltrão. Musculação para saúde, estética e performance. Ambiente exclusivo e acompanhamento profissional.",
+    "PULSAR - a academia premium que transformar você em sua melhor versão. Equipamentos de última geração, treinadores especializados e comunidade de elite.",
   keywords: [
-    "academia",
-    "musculação",
-    "fitness",
-    "Francisco Beltrão",
-    "treino personalizado",
+    "academia premium",
+    "musculação elite",
+    "fitness performance",
+    "treinamento personalizado",
+    "transformação física",
+    "academia de luxo",
   ],
   icons: {
     icon: "/icon.png",
     apple: "/icon.png",
   },
   openGraph: {
-    title: "Flex Force | Construa sua melhor versão", //'RK Fitness Center | Construa sua melhor versão',
+    title: "PULSAR | Academia Premium de Elite",
     description:
-      "Academia premium em Francisco Beltrão. Musculação para saúde, estética e performance.",
+      "Transforme-se em sua melhor versão. PULSAR oferece equipamentos premium, treinadores de elite e ambiente exclusivo.",
     images: ["/logo.png"],
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#000000",
+  themeColor: "#00d4ff",
   width: "device-width",
   initialScale: 1,
 };
@@ -48,9 +49,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className="scroll-smooth">
+    <html lang="pt-BR" className="scroll-smooth bg-background">
       <body
-        className={`${inter.variable} ${oswald.variable} font-sans antialiased bg-black text-white`}
+        className={`${inter.variable} ${oswald.variable} font-sans antialiased bg-background text-foreground`}
       >
         {children}
       </body>

@@ -1,90 +1,91 @@
-import Image from "next/image";
-import { Star } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
+'use client';
+
+import { Star } from 'lucide-react';
 
 const testimonials = [
   {
-    name: "Eduardo", //"Cristiano Ribeiro",
-    image: "/reviews/example-1.png",
+    name: 'Carlos Santos',
+    role: 'Empresário',
+    avatar: '👨‍💼',
+    content: 'PULSAR transformou minha vida. Em 6 meses, ganhei 8kg de massa muscular e reduzi meu percentual de gordura. A dedicação dos treinadores é incomparável.',
     rating: 5,
-    text: "Ótima academia! Os instrutores são ótimos profissionais, comprometidos com o bem-estar dos alunos. Os aparelhos são modernos, com ótima ergonomia. O pessoal da recepção é sempre muito simpático e competente. Recomendo sempre!",
   },
   {
-    name: "Julia", //"Carmen Melo",
-    image: "/reviews/example-3.png",
+    name: 'Marina Costa',
+    role: 'Atleta Profissional',
+    avatar: '👩‍⚕️',
+    content: 'O ambiente, a comunidade e a qualidade dos equipamentos fazem toda diferença. Alcancei meus melhores resultados treinar em PULSAR.',
     rating: 5,
-    text: "Gosto da academia porque é um lugar tranquilo para se exercitar. Os aparelhos são de boa qualidade, e os instrutores são bem tranquilos. Respeitam o seu tempo e estão sempre atentos, auxiliando durante todo o treino.",
   },
   {
-    name: "Pedro", //"Rodrigo Melo",
-    image: "/reviews/example-2.png",
+    name: 'João Oliveira',
+    role: 'Iniciante em Fitness',
+    avatar: '👨‍💻',
+    content: 'Comecei do zero e os treinadores foram fundamentais. Sinto-me confiante e motivado todo dia. PULSAR é a melhor decisão que tomei.',
     rating: 5,
-    text: "Academia bem equipada, não é preciso esperar para usar os aparelhos; é chegar e malhar. Espaço amplo e excelente atendimento.",
-  },
-  {
-    name: "Jaqueline", //"Odlanyer Antonio Ferreira",
-    image: "/reviews/example-4.png",
-    rating: 5,
-    text: "Lugar acessível para quem deseja fazer academia. Excelente localização, ambiente limpo e higiênico, além de ótimos professores. Gostei muito.",
   },
 ];
 
 export function Testimonials() {
   return (
-    <section
-      id="depoimentos"
-      className="py-24 bg-linear-to-b from-black to-zinc-950"
-    >
-      <div className="container mx-auto px-4">
+    <section id="testimonials" className="relative py-24 overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl opacity-40" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl opacity-40" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Section Header */}
         <div className="text-center mb-16">
-          <h2
-            className="text-3xl md:text-5xl font-bold mb-4"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
-            O que nossos{" "}
-            <span className="bg-linear-to-r from-orange-500 to-red-600 bg-clip-text text-transparent">
-              alunos dizem
-            </span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            Histórias de Transformação
           </h2>
-          <p className="text-white/60 max-w-2xl mx-auto">
-            Depoimentos reais de quem já transformou sua vida na Flex Force
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Veja como nossos membros Elite estão alcançando seus objetivos e transformando suas vidas.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Testimonials Grid */}
+        <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <Card
+            <div
               key={index}
-              className="bg-zinc-900/50 border-zinc-800 hover:border-zinc-700 transition-all duration-300"
+              className="group relative p-8 rounded-lg border border-border bg-card/50 hover:bg-card transition-all duration-300 overflow-hidden"
             >
-              <CardContent className="p-6">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="relative w-12 h-12 rounded-full overflow-hidden">
-                    <Image
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-white">{testimonial.name}</h3>
-                    <div className="flex gap-0.5">
-                      {Array.from({ length: testimonial.rating }).map(
-                        (_, i) => (
-                          <Star
-                            key={i}
-                            className="w-4 h-4 fill-orange-500 text-orange-500"
-                          />
-                        ),
-                      )}
-                    </div>
-                  </div>
+              {/* Gradient overlay on hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+
+              {/* Rating */}
+              <div className="relative mb-4 flex gap-1">
+                {[...Array(testimonial.rating)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 fill-secondary text-secondary" />
+                ))}
+              </div>
+
+              {/* Content */}
+              <p className="relative text-foreground mb-6 leading-relaxed italic">
+                {`"${testimonial.content}"`}
+              </p>
+
+              {/* Author */}
+              <div className="relative flex items-center gap-4">
+                <div className="text-3xl">{testimonial.avatar}</div>
+                <div>
+                  <h4 className="font-bold text-foreground">{testimonial.name}</h4>
+                  <p className="text-sm text-muted-foreground">{testimonial.role}</p>
                 </div>
-                <p className="text-white/70 text-sm leading-relaxed">{`"${testimonial.text}"`}</p>
-              </CardContent>
-            </Card>
+              </div>
+
+              {/* Bottom accent line */}
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-secondary scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
+            </div>
           ))}
+        </div>
+
+        {/* More testimonials CTA */}
+        <div className="text-center mt-12">
+          <button className="px-8 py-3 rounded-lg border border-primary text-primary hover:bg-primary/10 font-semibold transition-all">
+            Ver mais histórias de sucesso →
+          </button>
         </div>
       </div>
     </section>

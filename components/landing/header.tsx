@@ -1,128 +1,89 @@
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-
-const navItems = [
-  { label: "Serviços", href: "#servicos" },
-  { label: "Estrutura", href: "#estrutura" },
-  { label: "Planos", href: "#planos" },
-  { label: "Resultados", href: "#resultados" },
-  { label: "Depoimentos", href: "#depoimentos" },
-  { label: "Contato", href: "#contato" },
-];
+import { useState } from 'react';
+import Link from 'next/link';
+import { Menu, X, ArrowRight } from 'lucide-react';
 
 export function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const navLinks = [
+    { label: 'Sobre', href: '#about' },
+    { label: 'Planos', href: '#pricing' },
+    { label: 'Testemunhos', href: '#testimonials' },
+    { label: 'Contato', href: '#contact' },
+  ];
 
   return (
-    <header
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled
-          ? "bg-black/80 backdrop-blur-md border-b border-white/10"
-          : "bg-transparent",
-      )}
-    >
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
-          <div className="flex items-center gap-3">
-            <Link
-              href="/"
-              className="relative w-14 h-14 rounded-full overflow-hidden border border-white/10 shadow-md"
-            >
-              <Image
-                src="/logo.png"
-                alt="Flex Force"
-                fill
-                className="object-cover"
-                priority
-              />
-            </Link>
-
-            <div>
-              <span className="text-xl font-bold text-primary">FLEX FORCE</span>
-              <p className="text-xs text-muted-foreground tracking-widest">
-                ACADEMIA
-              </p>
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+        {/* Logo */}
+        <Link href="/" className="flex items-center gap-2 group">
+          <div className="relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-primary rounded-lg opacity-75 blur group-hover:opacity-100 transition-opacity" />
+            <div className="relative bg-background px-3 py-2 rounded-lg">
+              <span className="text-lg font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                PULSAR
+              </span>
             </div>
           </div>
-          <nav className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-white/80 hover:text-white transition-colors font-medium text-sm uppercase tracking-wider"
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
+        </Link>
 
-          <div className="hidden md:block">
-            <Button
-              asChild
-              className="bg-linear-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-semibold px-6"
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
-              <a
-                href="https://wa.me/5545991023526?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20aula%20experimental%20na%20academia."
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Agende sua Aula
-              </a>
-            </Button>
-          </div>
+              {link.label}
+            </a>
+          ))}
+        </div>
 
-          <button
-            className="md:hidden text-white p-2"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Menu"
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        {/* Desktop CTA */}
+        <div className="hidden md:block">
+          <button className="group relative px-6 py-2 font-medium text-foreground overflow-hidden rounded-lg">
+            <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-0 group-hover:opacity-100 transition-opacity" />
+            <span className="relative flex items-center gap-2">
+              Começar Agora
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </span>
           </button>
         </div>
-      </div>
 
-      {isMobileMenuOpen && (
-        <div className="md:hidden bg-black/95 backdrop-blur-md border-t border-white/10">
-          <nav className="container mx-auto px-4 py-6 flex flex-col gap-4">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-white/80 hover:text-white transition-colors font-medium text-lg py-2"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
-            <Button
-              asChild
-              className="bg-linear-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-semibold mt-4"
-            >
+        {/* Mobile Menu Toggle */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="md:hidden p-2 hover:bg-card rounded-lg transition-colors"
+        >
+          {isOpen ? (
+            <X className="w-6 h-6 text-foreground" />
+          ) : (
+            <Menu className="w-6 h-6 text-foreground" />
+          )}
+        </button>
+      </nav>
+
+      {/* Mobile Navigation */}
+      {isOpen && (
+        <div className="md:hidden bg-card border-t border-border">
+          <div className="max-w-7xl mx-auto px-4 py-4 space-y-4">
+            {navLinks.map((link) => (
               <a
-                href="https://wa.me/5545991023526?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20aula%20experimental%20na%20academia."
-                target="_blank"
-                rel="noopener noreferrer"
+                key={link.label}
+                href={link.href}
+                className="block text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                onClick={() => setIsOpen(false)}
               >
-                Agende sua Aula
+                {link.label}
               </a>
-            </Button>
-          </nav>
+            ))}
+            <button className="w-full mt-4 px-6 py-2 font-medium text-foreground bg-gradient-to-r from-primary to-secondary rounded-lg hover:shadow-lg hover:shadow-primary/50 transition-all">
+              Começar Agora
+            </button>
+          </div>
         </div>
       )}
     </header>

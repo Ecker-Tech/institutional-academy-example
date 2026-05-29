@@ -1,130 +1,142 @@
-import Image from "next/image";
-import Link from "next/link";
-import { Phone, MapPin } from "lucide-react";
-import { InstagramIcon } from "../icons/instagram";
+'use client';
+
+import Link from 'next/link';
+import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
 
 export function Footer() {
-  return (
-    <footer className="bg-black border-t border-zinc-800 py-16">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row justify-between gap-12 mb-12">
-          <div className="min-w-55 max-w-sm space-y-4">
-            <div className="flex items-center gap-3">
-              <Link href="/" className="flex items-center gap-2">
-                <Image
-                  src="/logo.png"
-                  alt="Flex force"
-                  width={48}
-                  height={48}
-                  className="w-12 h-12 rounded-full object-cover border border-white/10 shadow-md"
-                />
-                <div>
-                  <span className="text-xl font-bold text-primary">
-                    FLEX FORCE
-                  </span>
-                  <p className="text-xs text-muted-foreground tracking-widest">
-                    ACADEMIA
-                  </p>
-                </div>
-              </Link>
-            </div>
+  const currentYear = new Date().getFullYear();
 
-            <p className="text-white/60 text-sm leading-relaxed">
-              Construa sua melhor versão com treinos personalizados e
-              acompanhamento profissional.
+  return (
+    <footer className="relative border-t border-border bg-card/30 overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl opacity-40" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl opacity-40" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+          {/* Brand Column */}
+          <div className="space-y-4">
+            <Link href="/" className="inline-block group">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-primary rounded-lg opacity-75 blur group-hover:opacity-100 transition-opacity" />
+                <div className="relative bg-card px-3 py-2 rounded-lg">
+                  <span className="text-lg font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                    PULSAR
+                  </span>
+                </div>
+              </div>
+            </Link>
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              A academia premium que transforma você em sua melhor versão. Elite. Performance. Transformação.
             </p>
           </div>
 
-          <div className="min-w-45 space-y-4">
-            <h4 className="font-semibold text-white tracking-wide">
-              Links Rápidos
-            </h4>
+          {/* Navigation Column */}
+          <div className="space-y-4">
+            <h4 className="font-bold text-foreground">Navegação</h4>
             <ul className="space-y-2">
               {[
-                { href: "#servicos", label: "Serviços" },
-                { href: "#estrutura", label: "Estrutura" },
-                { href: "#planos", label: "Planos" },
-                { href: "#resultados", label: "Resultados" },
-                { href: "#depoimentos", label: "Depoimentos" },
-                { href: "#contato", label: "Contato" },
+                { label: 'Sobre', href: '#about' },
+                { label: 'Planos', href: '#pricing' },
+                { label: 'Testemunhos', href: '#testimonials' },
+                { label: 'Blog', href: '#' },
               ].map((item) => (
-                <li key={item.href}>
-                  <Link
+                <li key={item.label}>
+                  <a
                     href={item.href}
-                    className="text-white/60 hover:text-white transition-colors text-sm"
+                    className="text-muted-foreground hover:text-primary transition-colors text-sm"
                   >
                     {item.label}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className="min-w-50 space-y-4">
-            <h4 className="font-semibold text-white tracking-wide">Horários</h4>
-            <ul className="space-y-2 text-sm text-white/60">
-              <li>Seg-Sex: 05:30 - 22:00</li>
-              <li>Sábado: 09:00 - 12:00 / 14:00 - 16:00</li>
-              <li>Domingo: 10:00 - 12:00</li>
+          {/* Resources Column */}
+          <div className="space-y-4">
+            <h4 className="font-bold text-foreground">Recursos</h4>
+            <ul className="space-y-2">
+              {[
+                { label: 'Termos de Serviço', href: '#' },
+                { label: 'Política de Privacidade', href: '#' },
+                { label: 'Contato', href: '#' },
+                { label: 'FAQ', href: '#' },
+              ].map((item) => (
+                <li key={item.label}>
+                  <a
+                    href={item.href}
+                    className="text-muted-foreground hover:text-primary transition-colors text-sm"
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
-          <div className="min-w-55 space-y-4">
-            <h4 className="font-semibold text-white tracking-wide">Contato</h4>
+          {/* Contact Column */}
+          <div className="space-y-4">
+            <h4 className="font-bold text-foreground">Contato</h4>
             <ul className="space-y-3">
-              <li>
+              <li className="flex items-center gap-3">
+                <Phone className="w-4 h-4 text-primary flex-shrink-0" />
                 <a
-                  href="https://wa.me/5545991023526"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-white/60 hover:text-white transition-colors text-sm"
+                  href="tel:+5545991023526"
+                  className="text-muted-foreground hover:text-primary transition-colors text-sm"
                 >
-                  <Phone className="w-4 h-4" />
                   (45) 99102-3526
                 </a>
               </li>
-
-              <li>
+              <li className="flex items-center gap-3">
+                <Mail className="w-4 h-4 text-primary flex-shrink-0" />
                 <a
-                  href="https://www.instagram.com/leonardo_ecker/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-white/60 hover:text-white transition-colors text-sm"
+                  href="mailto:contato@pulsar.com"
+                  className="text-muted-foreground hover:text-primary transition-colors text-sm"
                 >
-                  <InstagramIcon />
-                  @flexforce.academia
+                  contato@pulsar.com
                 </a>
               </li>
-
-              <li>
-                <div className="flex items-start gap-2 text-white/60 text-sm">
-                  <MapPin className="w-4 h-4 mt-0.5 shrink-0" />
-                  <span>
-                    R. Getulio Vargas, 00, São Miguel, Francisco Beltrão - PR
-                  </span>
-                </div>
+              <li className="flex items-start gap-3">
+                <MapPin className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                <span className="text-muted-foreground text-sm">
+                  Francisco Beltrão, PR, Brasil
+                </span>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-zinc-800 pt-6 flex flex-col items-center justify-center gap-2 text-center">
-          <p className="text-white/40 text-sm">
-            © {new Date().getFullYear()} Flex Force
+        {/* Divider */}
+        <div className="border-t border-border my-8" />
+
+        {/* Bottom Section */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          {/* Copyright */}
+          <p className="text-muted-foreground text-sm">
+            © {currentYear} PULSAR Academia. Todos os direitos reservados.
           </p>
 
-          <p className="text-white/40 text-sm text-center md:text-right">
-            Desenvolvido por{" "}
-            <a
-              href="https://www.instagram.com/leonardo_ecker/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white/70 hover:text-white transition-colors font-semibold"
-            >
-              Ecker Tech
-            </a>{" "}
-            <span className="text-white/30">• Soluções Web & Cloud</span>
-          </p>
+          {/* Social Links */}
+          <div className="flex items-center gap-4">
+            {[
+              { icon: Facebook, href: '#' },
+              { icon: Instagram, href: '#' },
+              { icon: Twitter, href: '#' },
+              { icon: Linkedin, href: '#' },
+            ].map((social, index) => {
+              const Icon = social.icon;
+              return (
+                <a
+                  key={index}
+                  href={social.href}
+                  className="p-2 bg-card hover:bg-primary hover:text-primary-foreground rounded-lg transition-all duration-300"
+                >
+                  <Icon className="w-5 h-5" />
+                </a>
+              );
+            })}
+          </div>
         </div>
       </div>
     </footer>

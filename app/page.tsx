@@ -1,14 +1,10 @@
 import { Header } from "@/components/landing/header"
 import { Hero } from "@/components/landing/hero"
-import { Gallery } from "@/components/landing/gallery"
-import { Services } from "@/components/landing/services"
-import { Features } from "@/components/landing/features"
-import { Plans } from "@/components/landing/plans"
-import { Results } from "@/components/landing/results"
+import { ValuePropositions } from "@/components/landing/value-propositions"
+import { Pricing } from "@/components/landing/pricing"
 import { Testimonials } from "@/components/landing/testimonials"
-import { Location } from "@/components/landing/location"
+import { CTA } from "@/components/landing/cta"
 import { Footer } from "@/components/landing/footer"
-import { WhatsAppButton } from "@/components/landing/whatsapp-button"
 
 export default function Home() {
   return (
@@ -16,16 +12,12 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <Services />
-        <Gallery />
-        <Features />
-        <Plans />
-        <Results />
+        <ValuePropositions />
+        <Pricing />
         <Testimonials />
-        <Location />
+        <CTA />
       </main>
       <Footer />
-      <WhatsAppButton />
     </>
   )
 }
