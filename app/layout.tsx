@@ -14,33 +14,47 @@ const oswald = Oswald({
 });
 
 export const metadata: Metadata = {
-  title: "PULSAR | Academia Premium de Elite",
+  title: "ELITE FITNESS | Academia Premium",
   description:
-    "PULSAR - a academia premium que transformar você em sua melhor versão. Equipamentos de última geração, treinadores especializados e comunidade de elite.",
+    "ELITE FITNESS - A academia premium que transforma vidas. Equipamentos de última geração, treinadores especializados e ambiente exclusivo para você alcançar seus objetivos.",
   keywords: [
     "academia premium",
-    "musculação elite",
-    "fitness performance",
-    "treinamento personalizado",
+    "musculação",
+    "fitness",
+    "treino personalizado",
     "transformação física",
     "academia de luxo",
+    "personal trainer",
+    "cross training",
   ],
   icons: {
     icon: "/icon.png",
     apple: "/icon.png",
   },
   openGraph: {
-    title: "PULSAR | Academia Premium de Elite",
+    title: "ELITE FITNESS | Academia Premium",
     description:
-      "Transforme-se em sua melhor versão. PULSAR oferece equipamentos premium, treinadores de elite e ambiente exclusivo.",
-    images: ["/logo.png"],
+      "Transforme seu corpo e sua vida. ELITE FITNESS oferece estrutura premium, equipamentos modernos e profissionais qualificados.",
+    images: ["/og-image.jpg"],
+    type: "website",
+    locale: "pt_BR",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ELITE FITNESS | Academia Premium",
+    description: "Transforme seu corpo e sua vida na ELITE FITNESS.",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#00d4ff",
+  themeColor: "#22C55E",
   width: "device-width",
   initialScale: 1,
+  maximumScale: 5,
 };
 
 export default function RootLayout({

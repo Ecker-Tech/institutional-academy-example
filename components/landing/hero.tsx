@@ -1,78 +1,118 @@
-import { Badge } from "@/components/ui/badge";
-import { Zap, ArrowRight } from "lucide-react";
+'use client';
+
+import { motion } from 'framer-motion';
+import { ArrowRight, Play } from 'lucide-react';
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Animated background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-card to-background" />
-      
-      {/* Pulse glow effect */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-primary/20 rounded-full blur-3xl opacity-30 animate-pulse" />
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-secondary/20 rounded-full blur-3xl opacity-20 animate-pulse" />
+    <section
+      id="hero"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+    >
+      {/* Video Background */}
+      <div className="absolute inset-0 z-0">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+          poster="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop"
+        >
+          <source
+            src="https://videos.pexels.com/video-files/4761449/4761449-uhd_2560_1440_25fps.mp4"
+            type="video/mp4"
+          />
+        </video>
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/50 via-transparent to-background/50" />
+      </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="max-w-4xl mx-auto space-y-8">
+      {/* Content */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
+        <div className="max-w-4xl mx-auto text-center">
           {/* Badge */}
-          <Badge
-            variant="outline"
-            className="border-primary/50 text-primary bg-primary/10 px-4 py-2 text-sm inline-flex items-center gap-2"
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8"
           >
-            <Zap className="w-4 h-4" />
-            Transformação começa agora
-          </Badge>
+            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+            <span className="text-sm font-medium text-primary">
+              +10 anos transformando vidas
+            </span>
+          </motion.div>
 
           {/* Main Heading */}
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight float-up-animation">
-            <span className="block text-foreground">Alcance seu</span>
-            <span className="block bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent leading-tight">
-              Potencial Máximo
-            </span>
-          </h1>
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6"
+            style={{ fontFamily: 'var(--font-display)' }}
+          >
+            <span className="text-foreground">SUPERE</span>
+            <br />
+            <span className="text-foreground">SEUS </span>
+            <span className="text-primary">LIMITES</span>
+          </motion.h1>
 
-          {/* Subheading */}
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            PULSAR é mais que uma academia premium. É uma comunidade de elite onde força, disciplina e excelência se encontram. Transforme seu corpo e sua mente.
-          </p>
+          {/* Subheadline */}
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
+          >
+            A academia premium que combina estrutura de ponta, profissionais
+            qualificados e ambiente motivador para você alcançar resultados
+            extraordinários.
+          </motion.p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6">
-            <button className="group relative px-8 py-4 font-semibold text-foreground overflow-hidden rounded-lg">
-              <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary group-hover:opacity-110 transition-opacity rounded-lg" />
-              <span className="relative flex items-center justify-center gap-2">
-                Agende uma Aula
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </span>
-            </button>
-            <button className="px-8 py-4 font-semibold text-foreground border-2 border-primary hover:bg-primary/10 transition-colors rounded-lg">
-              Conheça os Planos
-            </button>
-          </div>
-
-          {/* Trust indicators */}
-          <div className="grid grid-cols-3 gap-4 pt-12 text-center">
-            <div className="space-y-2">
-              <div className="text-3xl font-bold text-primary">500+</div>
-              <p className="text-sm text-muted-foreground">Membros Ativos</p>
-            </div>
-            <div className="space-y-2">
-              <div className="text-3xl font-bold text-secondary">14+</div>
-              <p className="text-sm text-muted-foreground">Anos de Excelência</p>
-            </div>
-            <div className="space-y-2">
-              <div className="text-3xl font-bold text-primary">99%</div>
-              <p className="text-sm text-muted-foreground">Satisfação</p>
-            </div>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          >
+            <a
+              href="#aula-experimental"
+              className="group flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-semibold text-lg rounded-lg hover:bg-primary/90 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/25"
+            >
+              Agendar Aula Experimental
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </a>
+            <a
+              href="https://wa.me/5511999999999"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-2 px-8 py-4 bg-card border border-border text-foreground font-semibold text-lg rounded-lg hover:bg-card/80 hover:border-primary/50 transition-all duration-300"
+            >
+              <Play className="w-5 h-5" />
+              Falar no WhatsApp
+            </a>
+          </motion.div>
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 rounded-full border-2 border-primary/30 flex items-start justify-center p-2">
-          <div className="w-1.5 h-3 bg-primary/50 rounded-full animate-pulse" />
-        </div>
-      </div>
+      {/* Scroll Indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+      >
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity }}
+          className="w-6 h-10 rounded-full border-2 border-muted-foreground/30 flex items-start justify-center p-2"
+        >
+          <div className="w-1.5 h-3 bg-primary rounded-full" />
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
