@@ -4,39 +4,39 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #0f0f1e;
+  --background: #09090b;
   --foreground: #ffffff;
-  --card: #1a1a2e;
+  --card: #1a1a1a;
   --card-foreground: #ffffff;
-  --popover: #1a1a2e;
+  --popover: #1a1a1a;
   --popover-foreground: #ffffff;
-  --primary: #00d4ff;
-  --primary-foreground: #0f0f1e;
-  --secondary: #ff006e;
+  --primary: #d4ff00;
+  --primary-foreground: #09090b;
+  --secondary: #404040;
   --secondary-foreground: #ffffff;
-  --muted: #404059;
-  --muted-foreground: #a0a0b8;
-  --accent: #ff006e;
-  --accent-foreground: #ffffff;
+  --muted: #52525b;
+  --muted-foreground: #a1a1a6;
+  --accent: #d4ff00;
+  --accent-foreground: #09090b;
   --destructive: #ff4444;
   --destructive-foreground: #ffffff;
-  --border: #2a2a3e;
-  --input: #1a1a2e;
-  --ring: #00d4ff;
-  --chart-1: #00d4ff;
-  --chart-2: #ff006e;
-  --chart-3: #7c3aed;
-  --chart-4: #06b6d4;
-  --chart-5: #ec4899;
+  --border: #27272a;
+  --input: #1a1a1a;
+  --ring: #d4ff00;
+  --chart-1: #d4ff00;
+  --chart-2: #404040;
+  --chart-3: #52525b;
+  --chart-4: #6b7280;
+  --chart-5: #9ca3af;
   --radius: 0.625rem;
-  --sidebar: #1a1a2e;
+  --sidebar: #1a1a1a;
   --sidebar-foreground: #ffffff;
-  --sidebar-primary: #00d4ff;
-  --sidebar-primary-foreground: #0f0f1e;
-  --sidebar-accent: #ff006e;
-  --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: #2a2a3e;
-  --sidebar-ring: #00d4ff;
+  --sidebar-primary: #d4ff00;
+  --sidebar-primary-foreground: #09090b;
+  --sidebar-accent: #d4ff00;
+  --sidebar-accent-foreground: #09090b;
+  --sidebar-border: #27272a;
+  --sidebar-ring: #d4ff00;
 }
 
 @theme inline {
@@ -90,13 +90,13 @@
   }
 }
 
-/* PULSAR Brand Animation Utilities */
+/* ELITE Academia Brand Animation Utilities */
 @keyframes pulse-glow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3), 0 0 40px rgba(255, 0, 110, 0.1);
+    box-shadow: 0 0 20px rgba(212, 255, 0, 0.3), 0 0 40px rgba(212, 255, 0, 0.1);
   }
   50% {
-    box-shadow: 0 0 30px rgba(0, 212, 255, 0.5), 0 0 60px rgba(255, 0, 110, 0.2);
+    box-shadow: 0 0 30px rgba(212, 255, 0, 0.5), 0 0 60px rgba(212, 255, 0, 0.2);
   }
 }
 
@@ -120,6 +120,15 @@
   }
 }
 
+@keyframes infinite-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
 .pulse-glow {
   animation: pulse-glow 2s ease-in-out infinite;
 }
@@ -132,3 +141,35 @@
 .float-up-animation {
   animation: float-up 0.6s ease-out forwards;
 }
+
+.infinite-pulse-animation {
+  animation: infinite-pulse 2s ease-in-out infinite;
+}
+
+/* Scroll-reveal */
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  opacity: 0;
+  animation: reveal-up 0.6s ease-out forwards;
+  animation-play-state: paused;
+}
+
+.reveal.in-view {
+  animation-play-state: running;
+}
+
+/* Stagger delays for grid children */
+.stagger-1 { animation-delay: 0ms; }
+.stagger-2 { animation-delay: 100ms; }
+.stagger-3 { animation-delay: 200ms; }
+.stagger-4 { animation-delay: 300ms; }

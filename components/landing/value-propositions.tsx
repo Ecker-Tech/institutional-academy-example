@@ -1,72 +1,73 @@
 'use client';
 
-import { Zap, Users, Award } from 'lucide-react';
+import Image from 'next/image';
 
-const valuePropItems = [
+const benefitsItems = [
   {
-    icon: Zap,
-    title: 'Equipamentos de Ponta',
-    description: 'Tecnologia premium e equipamentos de última geração para máxima performance e segurança em seu treino.',
+    image: 'https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=120&h=120&fit=crop',
+    title: 'Ambiente Familiar',
+    description: 'Você se sente bem-vindo desde o primeiro dia. Comunidade acolhedora onde todos se conhecem e se ajudam.',
   },
   {
-    icon: Users,
-    title: 'Comunidade Elite',
-    description: 'Treine ao lado de atletas e profissionais que compartilham seus objetivos de excelência.',
+    image: 'https://images.unsplash.com/photo-1607962837359-5e7e89f86776?w=120&h=120&fit=crop',
+    title: 'Professores Certificados',
+    description: 'Profissionais qualificados e apaixonados por educação física, dedicados ao seu sucesso e transformação.',
   },
   {
-    icon: Award,
-    title: 'Treinadores Certificados',
-    description: 'Especialistas altamente qualificados dedicados a sua transformação e progression contínua.',
+    image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=120&h=120&fit=crop',
+    title: 'Equipamentos Modernos',
+    description: 'Máquinas biomecânicas de última geração para máxima segurança, conforto e efetividade nos treinos.',
+  },
+  {
+    image: 'https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=120&h=120&fit=crop',
+    title: 'Preço Justo',
+    description: 'Qualidade premium sem mensalidades exorbitantes. Transparência total, sem taxas escondidas.',
   },
 ];
 
 export function ValuePropositions() {
   return (
-    <section id="about" className="relative py-24 overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl opacity-30" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl opacity-30" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="benefits" className="relative py-24 bg-background">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Por que escolher <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">PULSAR</span>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-4">
+            Por que escolher Elite Academia
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Uma experiência completa de transformação corporal e mental em um ambiente premium.
+            Tudo o que você precisa para alcançar seus objetivos fitness em um único lugar.
           </p>
         </div>
 
-        {/* Value Prop Cards */}
-        <div className="grid md:grid-cols-3 gap-8">
-          {valuePropItems.map((item, index) => {
-            const Icon = item.icon;
-            return (
-              <div
-                key={index}
-                className="group relative p-8 rounded-lg border border-border bg-card/50 hover:bg-card transition-all duration-300 overflow-hidden"
-              >
-                {/* Gradient overlay on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-
-                {/* Icon background */}
-                <div className="relative mb-6">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-lg blur opacity-0 group-hover:opacity-100 transition-opacity" />
-                  <div className="relative w-14 h-14 bg-gradient-to-br from-primary/20 to-secondary/10 rounded-lg flex items-center justify-center">
-                    <Icon className="w-7 h-7 text-primary group-hover:text-secondary transition-colors" />
-                  </div>
-                </div>
-
-                {/* Content */}
-                <h3 className="text-xl font-bold mb-3 text-foreground">{item.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{item.description}</p>
-
-                {/* Bottom accent line */}
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-secondary scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
+        {/* Benefits Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {benefitsItems.map((item, index) => (
+            <div
+              key={index}
+              className="group relative p-6 rounded-lg border border-primary/30 bg-card/50 hover:bg-card hover:border-primary transition-all duration-300 overflow-hidden"
+            >
+              {/* Glow border effect on hover */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-primary/20 via-transparent to-transparent" />
               </div>
-            );
-          })}
+
+              {/* Image */}
+              <div className="relative mb-4 w-14 h-14 rounded-lg overflow-hidden ring-2 ring-primary/30 group-hover:ring-primary/60 transition-all">
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                {/* Lime tint overlay */}
+                <div className="absolute inset-0 bg-primary/20 group-hover:bg-primary/10 transition-colors" />
+              </div>
+
+              {/* Content */}
+              <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
