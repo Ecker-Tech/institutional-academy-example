@@ -1,6 +1,7 @@
 'use client';
 
 import { Check, ArrowRight } from 'lucide-react';
+import { useScrollReveal } from '@/hooks/use-scroll-reveal';
 
 const pricingPlans = [
   {
@@ -32,7 +33,7 @@ const pricingPlans = [
       'Plano nutricional básico',
     ],
     cta: 'Garantir Vaga',
-    highlighted: true,
+    highlighted: false,
   },
   {
     name: 'Anual',
@@ -48,14 +49,16 @@ const pricingPlans = [
       'Atendimento VIP',
     ],
     cta: 'Transformar Agora',
-    highlighted: false,
+    highlighted: true,
   },
 ];
 
 export function Pricing() {
+  const { ref, isInView } = useScrollReveal<HTMLElement>();
+
   return (
-    <section id="pricing" className="relative py-24 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="pricing" ref={ref} className="relative py-24 bg-background">
+      <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-reveal ${isInView ? 'in-view' : ''}`}>
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-lime-400 mb-4 text-balance uppercase font-display">
@@ -71,9 +74,9 @@ export function Pricing() {
           {pricingPlans.map((plan, index) => (
             <div
               key={index}
-              className={`relative rounded-xl border overflow-hidden transition-all duration-300 group ${
+              className={`stagger-child relative rounded-xl border overflow-hidden transition-all duration-300 group ${
                 plan.highlighted
-                  ? 'border-primary/60 bg-card md:scale-105 shadow-2xl shadow-primary/20'
+                  ? 'border-primary bg-card md:scale-105 shadow-2xl shadow-primary/20 neon-glow-animation'
                   : 'border-primary/20 bg-card/50 hover:border-primary/60 hover:bg-card'
               }`}
             >
@@ -94,7 +97,7 @@ export function Pricing() {
               {/* Badge for highlighted plan */}
               {plan.highlighted && (
                 <div className="relative bg-gradient-to-r from-primary to-lime-500 px-4 py-2 text-center font-bold text-primary-foreground text-sm">
-                  Plano Popular
+                  Melhor Escolha
                 </div>
               )}
 
@@ -113,7 +116,7 @@ export function Pricing() {
                     <span className="text-muted-foreground text-sm">{plan.period}</span>
                   </div>
                   {plan.highlighted && (
-                    <p className="text-xs text-primary font-semibold">Melhor custo-benefício</p>
+                    <p className="text-xs text-primary font-semibold">Economia de R$ 289 vs. mensal</p>
                   )}
                 </div>
 

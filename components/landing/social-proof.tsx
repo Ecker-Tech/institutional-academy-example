@@ -1,6 +1,6 @@
 'use client';
 
-import { Users, Star, MapPin, Clock } from 'lucide-react';
+import { Users, Star, MapPin, Trophy } from 'lucide-react';
 
 const proofBadges = [
   {
@@ -16,8 +16,8 @@ const proofBadges = [
     text: 'A maior de Pato Branco',
   },
   {
-    icon: Clock,
-    text: 'Aberto 7 dias por semana',
+    icon: Trophy,
+    text: 'Resultado Garantido em 90 Dias',
   },
 ];
 

@@ -1,6 +1,7 @@
 'use client';
 
 import { Users, Award, Dumbbell, Wallet } from 'lucide-react';
+import { useScrollReveal } from '@/hooks/use-scroll-reveal';
 
 const benefitsItems = [
   {
@@ -26,9 +27,11 @@ const benefitsItems = [
 ];
 
 export function ValuePropositions() {
+  const { ref, isInView } = useScrollReveal<HTMLElement>();
+
   return (
-    <section id="benefits" className="relative py-24 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="benefits" ref={ref} className="relative py-24 bg-background">
+      <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-reveal ${isInView ? 'in-view' : ''}`}>
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-lime-400 mb-4 text-balance uppercase font-display">
@@ -44,8 +47,7 @@ export function ValuePropositions() {
           {benefitsItems.map((item, index) => (
             <div
               key={index}
-              className="group relative p-6 rounded-lg border border-primary/30 bg-card/50 hover:bg-card hover:border-primary transition-all duration-300 overflow-hidden hover:scale-105 animate-fade-in-up"
-              style={{ animationDelay: `${index * 100}ms` }}
+              className="stagger-child group relative p-6 rounded-lg border border-primary/30 bg-card/50 hover:bg-card hover:border-primary transition-all duration-300 overflow-hidden hover:scale-105"
             >
               {/* Glow border effect on hover */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">

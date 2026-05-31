@@ -30,7 +30,7 @@ export function Hero() {
           href={`https://wa.me/5511999999999?text=${encodeURIComponent('Olá! Quero aproveitar a oferta do site e garantir minha vaga na Elite Academia!')}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-3 px-10 py-4 bg-primary text-primary-foreground font-bold text-lg rounded-lg hover:shadow-2xl hover:shadow-primary/50 transition-all duration-300 hover:scale-105 infinite-pulse-animation"
+          className="inline-flex items-center gap-3 px-10 py-4 bg-primary text-primary-foreground font-bold text-lg rounded-lg hover:shadow-2xl hover:shadow-primary/50 transition-all duration-300 hover:scale-105 cta-pulse-glow"
         >
           <Phone className="w-5 h-5" />
           Garantir Vaga no WhatsApp

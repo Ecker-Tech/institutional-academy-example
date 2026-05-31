@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 const faqs = [
   {
@@ -39,16 +40,14 @@ const faqs = [
 function FAQItem({
   question,
   answer,
-  index,
 }: {
   question: string;
   answer: string;
-  index: number;
 }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="border border-primary/20 rounded-lg overflow-hidden hover:border-primary/60 transition-colors bg-card/50 hover:bg-card">
+    <div className="stagger-child border border-primary/20 rounded-lg overflow-hidden hover:border-primary/60 transition-colors bg-card/50 hover:bg-card">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full px-6 py-4 flex items-center justify-between text-left group"
@@ -71,9 +70,11 @@ function FAQItem({
 }
 
 export function FAQ() {
+  const { ref, isInView } = useScrollReveal<HTMLElement>();
+
   return (
-    <section id="faq" className="relative py-24 bg-background">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="faq" ref={ref} className="relative py-24 bg-background">
+      <div className={`max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 scroll-reveal ${isInView ? 'in-view' : ''}`}>
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-lime-400 mb-4 text-balance uppercase font-display">
@@ -91,7 +92,6 @@ export function FAQ() {
               key={index}
               question={faq.question}
               answer={faq.answer}
-              index={index}
             />
           ))}
         </div>
@@ -103,7 +103,7 @@ export function FAQ() {
             href="https://wa.me/5511999999999?text=Olá!%20Tenho%20uma%20dúvida%20sobre%20a%20Elite%20Academia."
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-primary-foreground font-semibold rounded-lg hover:shadow-lg hover:shadow-primary/50 transition-all"
+            className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-primary-foreground font-semibold rounded-lg hover:shadow-lg hover:shadow-primary/50 transition-all hover:scale-105"
           >
             Entre em Contato
           </a>

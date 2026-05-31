@@ -1,4 +1,7 @@
+'use client';
+
 import { Clock } from 'lucide-react';
+import { useScrollReveal } from '@/hooks/use-scroll-reveal';
 
 const collectiveClasses = [
   { time: '06:00', name: 'Funcional' },
@@ -8,9 +11,11 @@ const collectiveClasses = [
 ];
 
 export function Schedule() {
+  const { ref, isInView } = useScrollReveal<HTMLElement>();
+
   return (
-    <section id="schedule" className="relative py-24 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="schedule" ref={ref} className="relative py-24 bg-background">
+      <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-reveal ${isInView ? 'in-view' : ''}`}>
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-lime-400 mb-4 text-balance uppercase font-display">
@@ -25,7 +30,7 @@ export function Schedule() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
 
           {/* Column 1 — Musculação: Horário Livre */}
-          <div className="rounded-xl border border-primary/30 bg-card p-8 flex flex-col justify-between">
+          <div className="stagger-child rounded-xl border border-primary/30 bg-card p-8 flex flex-col justify-between hover:border-primary/60 transition-all duration-300">
             <div className="space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 text-primary text-sm font-semibold">
                 <Clock className="w-4 h-4" />
@@ -46,7 +51,7 @@ export function Schedule() {
           </div>
 
           {/* Column 2 — Aulas Coletivas */}
-          <div className="rounded-xl border border-border bg-card p-8">
+          <div className="stagger-child rounded-xl border border-border bg-card p-8 hover:border-primary/40 transition-all duration-300">
             <div className="mb-6 space-y-1">
               <h3 className="text-3xl font-extrabold text-white tracking-tight">
                 Aulas Coletivas

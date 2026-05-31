@@ -1,4 +1,7 @@
+'use client';
+
 import Image from 'next/image';
+import { useScrollReveal } from '@/hooks/use-scroll-reveal';
 
 const photos = [
   {
@@ -34,9 +37,11 @@ const photos = [
 ];
 
 export function GymStructure() {
+  const { ref, isInView } = useScrollReveal<HTMLElement>();
+
   return (
-    <section id="structure" className="py-24 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="structure" ref={ref} className="py-24 bg-background">
+      <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-reveal ${isInView ? 'in-view' : ''}`}>
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-lime-400 mb-4 text-balance uppercase font-display">
@@ -52,8 +57,7 @@ export function GymStructure() {
           {photos.map((photo, index) => (
             <div
               key={index}
-              className="group relative h-64 rounded-xl overflow-hidden bg-card hover:scale-105 transition-all duration-300 animate-fade-in-up cursor-pointer"
-              style={{ animationDelay: `${index * 100}ms` }}
+              className="stagger-child group relative h-64 rounded-xl overflow-hidden bg-card hover:scale-105 transition-all duration-300 cursor-pointer"
             >
               <Image
                 src={photo.src}

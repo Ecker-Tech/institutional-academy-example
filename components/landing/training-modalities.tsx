@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 const modalities = [
   {
@@ -24,9 +25,11 @@ const modalities = [
 ];
 
 export function TrainingModalities() {
+  const { ref, isInView } = useScrollReveal<HTMLElement>();
+
   return (
-    <section id="modalities" className="relative py-24 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="modalities" ref={ref} className="relative py-24 bg-background">
+      <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-reveal ${isInView ? 'in-view' : ''}`}>
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-lime-400 mb-4 text-balance uppercase font-display">
@@ -42,8 +45,7 @@ export function TrainingModalities() {
           {modalities.map((modality, index) => (
             <div
               key={modality.id}
-              className="group relative h-96 rounded-xl overflow-hidden hover:scale-105 transition-all duration-300 cursor-pointer animate-fade-in-up"
-              style={{ animationDelay: `${index * 100}ms` }}
+              className="stagger-child group relative h-96 rounded-xl overflow-hidden hover:scale-105 transition-all duration-300 cursor-pointer"
             >
               {/* Background image */}
               <Image

@@ -1,11 +1,16 @@
+'use client';
+
 import { MapPin, Navigation, ExternalLink } from 'lucide-react';
+import { useScrollReveal } from '@/hooks/use-scroll-reveal';
 
 const mapsUrl = 'https://www.google.com/maps/search/?api=1&query=Pato+Branco+Parana';
 
 export function Location() {
+  const { ref, isInView } = useScrollReveal<HTMLElement>();
+
   return (
-    <section id="location" className="relative py-24 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="location" ref={ref} className="relative py-24 bg-background">
+      <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-reveal ${isInView ? 'in-view' : ''}`}>
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-lime-400 mb-4 text-balance uppercase font-display">
@@ -20,7 +25,7 @@ export function Location() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
 
           {/* Left Column — Address details */}
-          <div className="flex flex-col justify-between rounded-xl border border-primary/30 bg-card p-8 gap-8 hover:border-primary/60 transition-all duration-300 animate-fade-in-up">
+          <div className="stagger-child flex flex-col justify-between rounded-xl border border-primary/30 bg-card p-8 gap-8 hover:border-primary/60 transition-all duration-300">
             <div className="space-y-6">
               <h3 className="text-3xl font-extrabold text-white tracking-tighter font-display">
                 Venha Treinar Conosco
@@ -66,8 +71,7 @@ export function Location() {
             href={mapsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="relative rounded-xl overflow-hidden h-[400px] border border-primary/20 bg-zinc-900 block group cursor-pointer hover:border-primary/60 transition-all duration-300 animate-fade-in-up"
-            style={{ animationDelay: '100ms' }}
+            className="stagger-child relative rounded-xl overflow-hidden h-[400px] border border-primary/20 bg-zinc-900 block group cursor-pointer hover:border-primary/60 transition-all duration-300"
           >
             {/* Grid pattern */}
             <svg
