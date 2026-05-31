@@ -1,20 +1,11 @@
-'use client';
-
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Clock } from 'lucide-react';
 
-const scheduleData = {
-  weekdays: [
-    { time: '06:00', class: 'Crossfit' },
-    { time: '07:15', class: 'Funcional' },
-    { time: '18:00', class: 'Musculação' },
-    { time: '19:30', class: 'FitDance' },
-  ],
-  saturdays: [
-    { time: '08:30', class: 'Circuito Queima' },
-    { time: '10:00', class: 'Arena Cross' },
-  ],
-};
+const collectiveClasses = [
+  { time: '06:00', name: 'Crossfit' },
+  { time: '07:15', name: 'Funcional' },
+  { time: '18:00', name: 'Crossfit' },
+  { time: '19:30', name: 'FitDance' },
+];
 
 export function Schedule() {
   return (
@@ -23,69 +14,71 @@ export function Schedule() {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-4">
-            Horários de Aulas
+            Horários
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Escolha os horários que se encaixam melhor na sua rotina
+            Segunda a sexta — estrutura disponível ao longo de todo o dia
           </p>
         </div>
 
-        {/* Schedule Tabs */}
-        <div className="max-w-2xl mx-auto">
-          <Tabs defaultValue="weekdays" className="w-full">
-            <TabsList className="grid w-full grid-cols-2 mb-8 bg-card border border-primary/30">
-              <TabsTrigger value="weekdays" className="text-base font-semibold">
-                Segunda a Sexta
-              </TabsTrigger>
-              <TabsTrigger value="saturdays" className="text-base font-semibold">
-                Sábados
-              </TabsTrigger>
-            </TabsList>
+        {/* Two-column layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
 
-            {/* Weekdays Schedule */}
-            <TabsContent value="weekdays" className="space-y-3">
-              {scheduleData.weekdays.map((item, index) => (
-                <div
-                  key={index}
-                  className="flex items-center gap-4 p-4 rounded-lg border border-primary/20 bg-card/50 hover:border-primary/60 hover:bg-card transition-all duration-300"
-                >
-                  <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-primary/20">
-                    <Clock className="w-6 h-6 text-primary" />
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-sm text-muted-foreground">Horário</p>
-                    <p className="text-lg font-semibold text-white">{item.time}</p>
-                  </div>
-                  <div className="text-right">
-                    <p className="text-sm text-muted-foreground">Aula</p>
-                    <p className="text-lg font-semibold text-primary">{item.class}</p>
-                  </div>
-                </div>
-              ))}
-            </TabsContent>
+          {/* Column 1 — Musculação: Horário Livre */}
+          <div className="rounded-xl border border-primary/30 bg-card p-8 flex flex-col justify-between">
+            <div className="space-y-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 text-primary text-sm font-semibold">
+                <Clock className="w-4 h-4" />
+                Horário Livre
+              </div>
+              <h3 className="text-3xl font-extrabold text-white tracking-tight">
+                Musculação
+              </h3>
+              <p className="text-muted-foreground text-base leading-relaxed">
+                Treine no seu ritmo, sem horário marcado. A sala de musculação fica disponível durante todo o funcionamento da academia.
+              </p>
+            </div>
+            <div className="mt-8 p-5 rounded-lg bg-primary/10 border border-primary/20">
+              <p className="text-sm text-muted-foreground uppercase tracking-wider font-semibold mb-1">Seg – Sex</p>
+              <p className="text-4xl font-black text-primary">06:00 – 22:00</p>
+              <p className="text-sm text-muted-foreground mt-2">Sábados: 08:00 – 14:00</p>
+            </div>
+          </div>
 
-            {/* Saturdays Schedule */}
-            <TabsContent value="saturdays" className="space-y-3">
-              {scheduleData.saturdays.map((item, index) => (
-                <div
-                  key={index}
-                  className="flex items-center gap-4 p-4 rounded-lg border border-primary/20 bg-card/50 hover:border-primary/60 hover:bg-card transition-all duration-300"
-                >
-                  <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-primary/20">
-                    <Clock className="w-6 h-6 text-primary" />
+          {/* Column 2 — Aulas Coletivas */}
+          <div className="rounded-xl border border-border bg-card p-8">
+            <div className="mb-6 space-y-1">
+              <h3 className="text-3xl font-extrabold text-white tracking-tight">
+                Aulas Coletivas
+              </h3>
+              <p className="text-muted-foreground text-sm">Horários fixos — Segunda a Sexta</p>
+            </div>
+
+            {/* Timeline */}
+            <ol className="relative border-l border-primary/30 space-y-6 pl-6">
+              {collectiveClasses.map((item, index) => (
+                <li key={index} className="relative">
+                  {/* Timeline dot */}
+                  <span className="absolute -left-[1.65rem] top-1 flex h-4 w-4 items-center justify-center rounded-full bg-primary ring-4 ring-background" />
+                  <div className="flex items-baseline gap-4">
+                    <span className="text-primary font-bold text-lg tabular-nums w-14 shrink-0">
+                      {item.time}
+                    </span>
+                    <span className="text-white font-semibold text-lg">{item.name}</span>
                   </div>
-                  <div className="flex-1">
-                    <p className="text-sm text-muted-foreground">Horário</p>
-                    <p className="text-lg font-semibold text-white">{item.time}</p>
-                  </div>
-                  <div className="text-right">
-                    <p className="text-sm text-muted-foreground">Aula</p>
-                    <p className="text-lg font-semibold text-primary">{item.class}</p>
-                  </div>
-                </div>
+                </li>
               ))}
-            </TabsContent>
-          </Tabs>
+            </ol>
+
+            {/* Saturday notice */}
+            <div className="mt-8 p-4 rounded-lg bg-zinc-900 border border-border">
+              <p className="text-sm text-muted-foreground">
+                <span className="text-white font-semibold">Sábados:</span>{' '}
+                Aulas coletivas <span className="text-primary font-semibold">não ocorrem</span>. Musculação funciona das 08:00 às 14:00.
+              </p>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

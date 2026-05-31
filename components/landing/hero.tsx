@@ -5,44 +5,42 @@ import Image from 'next/image';
 
 export function Hero() {
   return (
-    <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 min-h-screen bg-background">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left Column: Content */}
-          <div className="space-y-8 order-2 lg:order-1">
-            <div className="space-y-4">
-              <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-white text-balance">
-                Treine na Melhor Academia do Bairro
-              </h1>
-              <p className="text-lg md:text-xl font-normal text-muted-foreground leading-relaxed">
-                Estrutura moderna, ambiente familiar e professores focados no seu resultado.
-              </p>
-            </div>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Full-screen background image */}
+      <Image
+        src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1600&h=900&fit=crop"
+        alt="Elite Academia interior"
+        fill
+        className="object-cover"
+        priority
+      />
 
-            <a
-              href="https://wa.me/5511999999999"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-lg hover:shadow-2xl hover:shadow-primary/50 transition-all duration-300 hover:scale-105 infinite-pulse-animation"
-            >
-              <Phone className="w-5 h-5" />
-              Garantir Vaga no WhatsApp
-            </a>
-          </div>
+      {/* Dark gradient overlay for legibility */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-zinc-950" />
 
-          {/* Right Column: Image */}
-          <div className="relative h-96 md:h-[500px] order-1 lg:order-2">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent rounded-2xl" />
-            <div className="absolute inset-0 bg-zinc-900 rounded-2xl overflow-hidden">
-              <Image
-                src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&h=600&fit=crop"
-                alt="Elite Academia - Equipamentos de última geração"
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
-          </div>
+      {/* Centered content */}
+      <div className="relative z-10 flex flex-col items-center text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto space-y-8">
+        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-white text-balance leading-tight">
+          Treine na Melhor Academia do Bairro
+        </h1>
+        <p className="text-lg md:text-xl text-white/70 leading-relaxed max-w-2xl">
+          Estrutura moderna, ambiente familiar e professores focados no seu resultado.
+        </p>
+        <a
+          href="https://wa.me/5511999999999"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-3 px-10 py-4 bg-primary text-primary-foreground font-bold text-lg rounded-lg hover:shadow-2xl hover:shadow-primary/50 transition-all duration-300 hover:scale-105 infinite-pulse-animation"
+        >
+          <Phone className="w-5 h-5" />
+          Garantir Vaga no WhatsApp
+        </a>
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+        <div className="w-6 h-10 rounded-full border-2 border-white/30 flex items-start justify-center p-2">
+          <div className="w-1.5 h-3 bg-primary/70 rounded-full" />
         </div>
       </div>
     </section>
