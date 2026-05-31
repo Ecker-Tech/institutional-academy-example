@@ -16,7 +16,7 @@ export function Hero() {
       />
 
       {/* Dark gradient overlay for legibility */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-zinc-950" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/75 to-zinc-950" />
 
       {/* Centered content */}
       <div className="relative z-10 flex flex-col items-center text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto space-y-8">
@@ -27,7 +27,7 @@ export function Hero() {
           Estrutura moderna, ambiente familiar e professores focados no seu resultado.
         </p>
         <a
-          href="https://wa.me/5511999999999"
+          href={`https://wa.me/5511999999999?text=${encodeURIComponent('Olá! Quero aproveitar a oferta do site e garantir minha vaga na Elite Academia!')}`}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-3 px-10 py-4 bg-primary text-primary-foreground font-bold text-lg rounded-lg hover:shadow-2xl hover:shadow-primary/50 transition-all duration-300 hover:scale-105 infinite-pulse-animation"

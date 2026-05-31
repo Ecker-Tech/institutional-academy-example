@@ -5,6 +5,7 @@ import { GymStructure } from "@/components/landing/gym-structure"
 import { TrainingModalities } from "@/components/landing/training-modalities"
 import { Schedule } from "@/components/landing/schedule"
 import { Pricing } from "@/components/landing/pricing"
+import { Location } from "@/components/landing/location"
 import { FAQ } from "@/components/landing/faq"
 import { Footer } from "@/components/landing/footer"
 
@@ -19,6 +20,7 @@ export default function Home() {
         <TrainingModalities />
         <Schedule />
         <Pricing />
+        <Location />
         <FAQ />
       </main>
       <Footer />

@@ -13,7 +13,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           {/* Brand Column */}
           <div className="space-y-4">
-            <Link href="/" className="inline-flex items-center gap-3 group">
+            <Link href="#" className="inline-flex items-center gap-3 group">
               <div className="w-10 h-10 relative">
                 <Image
                   src="/favicon.png"
@@ -137,6 +137,19 @@ export function Footer() {
             })}
           </div>
         </div>
+
+        {/* Developer credit */}
+        <p className="text-center text-muted-foreground text-xs mt-6">
+          Desenvolvido por{' '}
+          <a
+            href="https://eckertech.com.br"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary hover:underline font-medium"
+          >
+            Ecker Tech
+          </a>
+        </p>
       </div>
     </footer>
   );

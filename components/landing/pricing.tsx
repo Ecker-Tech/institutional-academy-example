@@ -119,7 +119,7 @@ export function Pricing() {
 
                 {/* CTA Button */}
                 <a
-                  href="https://wa.me/5511999999999"
+                  href={`https://wa.me/5511999999999?text=${encodeURIComponent(`Olá! Gostaria de fazer a minha matrícula no Plano ${plan.name} que vi no site.`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`w-full py-3 px-6 rounded-lg font-semibold mb-6 transition-all duration-300 flex items-center justify-center gap-2 group/btn ${

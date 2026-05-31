@@ -49,7 +49,7 @@ export function Header() {
         {/* Desktop CTA */}
         <div className="hidden md:flex items-center gap-3">
           <a
-            href="https://wa.me/5511999999999"
+            href={`https://wa.me/5511999999999?text=${encodeURIComponent('Olá! Vi o site da Elite Academia e gostaria de tirar dúvidas sobre a matrícula.')}`}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground font-semibold rounded-lg hover:shadow-lg hover:shadow-primary/50 transition-all hover:scale-105"
@@ -87,7 +87,7 @@ export function Header() {
               </a>
             ))}
             <a
-              href="https://wa.me/5511999999999"
+              href={`https://wa.me/5511999999999?text=${encodeURIComponent('Olá! Vi o site da Elite Academia e gostaria de tirar dúvidas sobre a matrícula.')}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 w-full mt-4 px-4 py-2 bg-primary text-primary-foreground font-semibold rounded-lg hover:shadow-lg hover:shadow-primary/50 transition-all"

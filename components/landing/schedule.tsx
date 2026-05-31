@@ -1,10 +1,10 @@
 import { Clock } from 'lucide-react';
 
 const collectiveClasses = [
-  { time: '06:00', name: 'Crossfit' },
+  { time: '06:00', name: 'Funcional' },
   { time: '07:15', name: 'Funcional' },
-  { time: '18:00', name: 'Crossfit' },
-  { time: '19:30', name: 'FitDance' },
+  { time: '18:00', name: 'Boxe' },
+  { time: '19:30', name: 'Boxe' },
 ];
 
 export function Schedule() {
