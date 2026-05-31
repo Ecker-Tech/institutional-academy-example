@@ -19,20 +19,20 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/75 to-zinc-950" />
 
       {/* Centered content */}
-      <div className="relative z-10 flex flex-col items-center text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto space-y-8">
-        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter text-lime-400 text-balance leading-tight uppercase font-display">
+      <div className="relative z-10 flex flex-col items-center text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto space-y-5 sm:space-y-8">
+        <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter text-lime-400 text-balance leading-tight uppercase font-display">
           Treine na Melhor Academia do Bairro
         </h1>
-        <p className="text-lg md:text-xl text-slate-300 leading-relaxed max-w-2xl">
+        <p className="text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed max-w-2xl">
           Estrutura moderna, ambiente familiar e professores focados no seu resultado.
         </p>
         <a
           href={`https://wa.me/5511999999999?text=${encodeURIComponent('Olá! Quero aproveitar a oferta do site e garantir minha vaga na Elite Academia!')}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-3 px-10 py-4 bg-primary text-primary-foreground font-bold text-lg rounded-lg hover:shadow-2xl hover:shadow-primary/50 transition-all duration-300 hover:scale-105 cta-pulse-glow"
+          className="inline-flex items-center gap-2 sm:gap-3 px-6 py-3 sm:px-10 sm:py-4 bg-primary text-primary-foreground font-bold text-sm sm:text-base md:text-lg rounded-lg hover:shadow-2xl hover:shadow-primary/50 transition-all duration-300 hover:scale-105 cta-pulse-glow"
         >
-          <Phone className="w-5 h-5" />
+          <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
           Garantir Vaga no WhatsApp
         </a>
       </div>

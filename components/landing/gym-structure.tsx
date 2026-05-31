@@ -40,24 +40,24 @@ export function GymStructure() {
   const { ref, isInView } = useScrollReveal<HTMLElement>();
 
   return (
-    <section id="structure" ref={ref} className="py-24 bg-background">
+    <section id="structure" ref={ref} className="py-12 sm:py-16 md:py-24 bg-background">
       <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-reveal ${isInView ? 'in-view' : ''}`}>
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-lime-400 mb-4 text-balance uppercase font-display">
+        <div className="text-center mb-8 sm:mb-12 md:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-lime-400 mb-3 sm:mb-4 text-balance uppercase font-display">
             Ambiente de Elite para o Seu Máximo Rendimento
           </h2>
-          <p className="text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
             Espaços modernos e bem cuidados projetados para o seu melhor desempenho
           </p>
         </div>
 
         {/* Photo Gallery Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
           {photos.map((photo, index) => (
             <div
               key={index}
-              className="stagger-child group relative h-64 rounded-xl overflow-hidden bg-card hover:scale-105 transition-all duration-300 cursor-pointer"
+              className="stagger-child group relative h-40 sm:h-56 md:h-64 rounded-lg sm:rounded-xl overflow-hidden bg-card hover:scale-105 transition-all duration-300 cursor-pointer"
             >
               <Image
                 src={photo.src}
@@ -67,7 +67,7 @@ export function GymStructure() {
               />
               {/* Label overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent group-hover:from-black/80 transition-all duration-300" />
-              <span className="absolute bottom-4 left-4 text-white font-semibold text-sm tracking-wide group-hover:text-primary transition-colors duration-300">
+              <span className="absolute bottom-2 left-2 sm:bottom-4 sm:left-4 text-white font-semibold text-xs sm:text-sm tracking-wide group-hover:text-primary transition-colors duration-300">
                 {photo.label}
               </span>
             </div>
