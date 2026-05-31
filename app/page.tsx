@@ -1,5 +1,6 @@
 import { Header } from "@/components/landing/header"
 import { Hero } from "@/components/landing/hero"
+import { SocialProof } from "@/components/landing/social-proof"
 import { ValuePropositions } from "@/components/landing/value-propositions"
 import { GymStructure } from "@/components/landing/gym-structure"
 import { TrainingModalities } from "@/components/landing/training-modalities"
@@ -15,6 +16,7 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <SocialProof />
         <ValuePropositions />
         <GymStructure />
         <TrainingModalities />

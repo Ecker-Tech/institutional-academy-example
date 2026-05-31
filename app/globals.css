@@ -79,6 +79,11 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  
+  /* Custom animations */
+  --animate-marquee: marquee 25s linear infinite;
+  --animate-fade-in-up: fade-in-up 0.6s ease-out forwards;
+  --animate-bounce-subtle: bounce-subtle 0.6s ease-in-out;
 }
 
 @layer base {
@@ -129,6 +134,35 @@
   }
 }
 
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce-subtle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
 .pulse-glow {
   animation: pulse-glow 2s ease-in-out infinite;
 }
@@ -144,6 +178,18 @@
 
 .infinite-pulse-animation {
   animation: infinite-pulse 2s ease-in-out infinite;
+}
+
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+.animate-bounce-subtle {
+  animation: bounce-subtle 0.6s ease-in-out;
 }
 
 /* Scroll-reveal */
@@ -173,3 +219,85 @@
 .stagger-2 { animation-delay: 100ms; }
 .stagger-3 { animation-delay: 200ms; }
 .stagger-4 { animation-delay: 300ms; }
+
+/* Global smooth transitions for interactive elements */
+a, button, [role="button"] {
+  @apply transition-all duration-300;
+}
+
+/* Card and interactive element hover effects */
+.hover-lift {
+  @apply transition-all duration-300 hover:scale-105 hover:shadow-lg;
+}
+
+/* Neon border glow animation for highlighted pricing cards */
+@keyframes neon-border-glow {
+  0%, 100% {
+    box-shadow: 
+      0 0 5px rgba(212, 255, 0, 0.4),
+      0 0 10px rgba(212, 255, 0, 0.3),
+      0 0 20px rgba(212, 255, 0, 0.2),
+      0 0 40px rgba(212, 255, 0, 0.1);
+  }
+  50% {
+    box-shadow: 
+      0 0 10px rgba(212, 255, 0, 0.6),
+      0 0 20px rgba(212, 255, 0, 0.5),
+      0 0 40px rgba(212, 255, 0, 0.3),
+      0 0 60px rgba(212, 255, 0, 0.2);
+  }
+}
+
+.neon-glow-animation {
+  animation: neon-border-glow 2s ease-in-out infinite;
+}
+
+/* Hero CTA pulsing glow */
+@keyframes cta-pulse-glow {
+  0%, 100% {
+    box-shadow: 
+      0 0 10px rgba(212, 255, 0, 0.4),
+      0 0 20px rgba(212, 255, 0, 0.2);
+  }
+  50% {
+    box-shadow: 
+      0 0 20px rgba(212, 255, 0, 0.6),
+      0 0 40px rgba(212, 255, 0, 0.4),
+      0 0 60px rgba(212, 255, 0, 0.2);
+  }
+}
+
+.cta-pulse-glow {
+  animation: cta-pulse-glow 2s ease-in-out infinite;
+}
+
+/* Scroll reveal animation classes */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered children animations */
+.stagger-child {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.in-view .stagger-child {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.in-view .stagger-child:nth-child(1) { transition-delay: 0ms; }
+.in-view .stagger-child:nth-child(2) { transition-delay: 100ms; }
+.in-view .stagger-child:nth-child(3) { transition-delay: 200ms; }
+.in-view .stagger-child:nth-child(4) { transition-delay: 300ms; }
+.in-view .stagger-child:nth-child(5) { transition-delay: 400ms; }
+.in-view .stagger-child:nth-child(6) { transition-delay: 500ms; }
