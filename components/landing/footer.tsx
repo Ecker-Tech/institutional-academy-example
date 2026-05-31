@@ -99,7 +99,7 @@ export function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
                 <span className="text-muted-foreground text-sm">
-                  Seu Bairro, SP, Brasil
+                  Pato Branco, Paraná
                 </span>
               </li>
             </ul>

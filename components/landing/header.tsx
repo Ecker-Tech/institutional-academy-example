@@ -13,6 +13,7 @@ export function Header() {
     { label: 'Modalidades', href: '#modalities' },
     { label: 'Horários', href: '#schedule' },
     { label: 'Planos', href: '#pricing' },
+    { label: 'Localização', href: '#location' },
     { label: 'FAQ', href: '#faq' },
   ];
 

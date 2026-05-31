@@ -1,6 +1,6 @@
-import { MapPin, Navigation } from 'lucide-react';
+import { MapPin, Navigation, ExternalLink } from 'lucide-react';
 
-const mapsUrl = 'https://www.google.com/maps/search/Elite+Academia';
+const mapsUrl = 'https://google.com';
 
 export function Location() {
   return (
@@ -8,11 +8,11 @@ export function Location() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-4">
-            Localização
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-4 text-balance">
+            A Elite está pertinho de você. Venha nos conhecer!
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Estamos no coração do bairro — fácil de encontrar e de chegar
+            Estamos no coração de Pato Branco — fácil de encontrar e de chegar
           </p>
         </div>
 
