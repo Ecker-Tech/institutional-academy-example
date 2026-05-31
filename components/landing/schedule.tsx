@@ -13,8 +13,8 @@ export function Schedule() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-4">
-            Horários
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-lime-400 mb-4 text-balance">
+            Sua Rotina, Seus Horários. Treine Sem Desculpas
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Segunda a sexta — estrutura disponível ao longo de todo o dia

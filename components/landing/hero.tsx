@@ -20,7 +20,7 @@ export function Hero() {
 
       {/* Centered content */}
       <div className="relative z-10 flex flex-col items-center text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto space-y-8">
-        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-white text-balance leading-tight">
+        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-lime-400 text-balance leading-tight">
           Treine na Melhor Academia do Bairro
         </h1>
         <p className="text-lg md:text-xl text-white/70 leading-relaxed max-w-2xl">

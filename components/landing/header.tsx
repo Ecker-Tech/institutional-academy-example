@@ -10,6 +10,7 @@ export function Header() {
 
   const navLinks = [
     { label: 'Benefícios', href: '#benefits' },
+    { label: 'Estrutura', href: '#structure' },
     { label: 'Modalidades', href: '#modalities' },
     { label: 'Horários', href: '#schedule' },
     { label: 'Planos', href: '#pricing' },

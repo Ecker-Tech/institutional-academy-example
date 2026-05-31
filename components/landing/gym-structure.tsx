@@ -39,8 +39,8 @@ export function GymStructure() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-4">
-            Nossa Estrutura
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-lime-400 mb-4 text-balance">
+            Ambiente de Elite para o Seu Máximo Rendimento
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Espaços modernos e bem cuidados projetados para o seu melhor desempenho
