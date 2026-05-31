@@ -1,29 +1,36 @@
-'use client';
+"use client";
 
-import { MapPin, Navigation, ExternalLink } from 'lucide-react';
-import { useScrollReveal } from '@/hooks/use-scroll-reveal';
+import { MapPin, Navigation, ExternalLink } from "lucide-react";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
-const mapsUrl = 'https://www.google.com/maps/search/?api=1&query=Pato+Branco+Parana';
+const mapsUrl =
+  "https://www.google.com/maps/search/?api=1&query=Pato+Branco+Parana";
 
 export function Location() {
   const { ref, isInView } = useScrollReveal<HTMLElement>();
 
   return (
-    <section id="location" ref={ref} className="relative py-12 sm:py-16 md:py-24 bg-background">
-      <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-reveal ${isInView ? 'in-view' : ''}`}>
+    <section
+      id="location"
+      ref={ref}
+      className="relative py-12 sm:py-16 md:py-24 bg-background"
+    >
+      <div
+        className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-reveal ${isInView ? "in-view" : ""}`}
+      >
         {/* Section Header */}
         <div className="text-center mb-8 sm:mb-12 md:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-lime-400 mb-3 sm:mb-4 text-balance uppercase font-display">
             A Elite está pertinho de você. Venha nos conhecer!
           </h2>
           <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Estamos no coração de Pato Branco - Paraná — fácil de encontrar e de chegar
+            Estamos no coração de Pato Branco - Paraná — fácil de encontrar e de
+            chegar
           </p>
         </div>
 
         {/* Two-column layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 items-stretch">
-
           {/* Left Column — Address details */}
           <div className="stagger-child flex flex-col justify-between rounded-lg sm:rounded-xl border border-primary/30 bg-card p-5 sm:p-6 md:p-8 gap-6 sm:gap-8 hover:border-primary/60 transition-all duration-300">
             <div className="space-y-4 sm:space-y-6">
@@ -31,24 +38,35 @@ export function Location() {
                 Venha Treinar Conosco
               </h3>
               <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
-                A Elite Academia fica em um ponto de fácil acesso no bairro, com estacionamento próprio e próxima ao transporte público. Você não tem desculpa para não treinar!
+                A Elite Academia fica em um ponto de fácil acesso no bairro, com
+                estacionamento próprio e próxima ao transporte público. Você não
+                tem desculpa para não treinar!
               </p>
 
               {/* Address block */}
               <div className="space-y-3 sm:space-y-4">
                 <div className="flex items-start gap-2.5 sm:gap-3">
-                  <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0 mt-0.5" />
+                  <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-primary shrink-0 mt-0.5" />
                   <div>
-                    <p className="text-white font-semibold text-sm sm:text-base">Rua Exemplo, 1234 — Sala 01</p>
-                    <p className="text-slate-300 text-xs sm:text-sm">Bairro Centro</p>
-                    <p className="text-slate-300 text-xs sm:text-sm font-semibold">Pato Branco - Paraná</p>
-                    <p className="text-slate-400 text-xs sm:text-sm">CEP: 85501-000</p>
+                    <p className="text-white font-semibold text-sm sm:text-base">
+                      Rua Exemplo, 1234 — Sala 01
+                    </p>
+                    <p className="text-slate-300 text-xs sm:text-sm">
+                      Bairro Centro
+                    </p>
+                    <p className="text-slate-300 text-xs sm:text-sm font-semibold">
+                      Pato Branco - Paraná
+                    </p>
+                    <p className="text-slate-400 text-xs sm:text-sm">
+                      CEP: 85501-000
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start gap-2.5 sm:gap-3">
-                  <Navigation className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0 mt-0.5" />
+                  <Navigation className="w-4 h-4 sm:w-5 sm:h-5 text-primary shrink-0 mt-0.5" />
                   <p className="text-slate-300 text-xs sm:text-sm">
-                    Estacionamento gratuito no local — Fácil acesso pelo centro da cidade
+                    Estacionamento gratuito no local — Fácil acesso pelo centro
+                    da cidade
                   </p>
                 </div>
               </div>
@@ -71,7 +89,7 @@ export function Location() {
             href={mapsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="stagger-child relative rounded-lg sm:rounded-xl overflow-hidden h-[280px] sm:h-[350px] md:h-[400px] border border-primary/20 bg-zinc-900 block group cursor-pointer hover:border-primary/60 transition-all duration-300"
+            className="stagger-child relative rounded-lg sm:rounded-xl overflow-hidden h-70 sm:h-87.5 md:h-100 border border-primary/20 bg-zinc-900 block group cursor-pointer hover:border-primary/60 transition-all duration-300"
           >
             {/* Grid pattern */}
             <svg
@@ -80,24 +98,38 @@ export function Location() {
               xmlns="http://www.w3.org/2000/svg"
             >
               <defs>
-                <pattern id="map-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#d4ff00" strokeWidth="0.5" />
+                <pattern
+                  id="map-grid"
+                  width="40"
+                  height="40"
+                  patternUnits="userSpaceOnUse"
+                >
+                  <path
+                    d="M 40 0 L 0 0 0 40"
+                    fill="none"
+                    stroke="#d4ff00"
+                    strokeWidth="0.5"
+                  />
                 </pattern>
               </defs>
               <rect width="100%" height="100%" fill="url(#map-grid)" />
             </svg>
 
             {/* Faux streets */}
-            <svg aria-hidden="true" className="absolute inset-0 w-full h-full opacity-15" xmlns="http://www.w3.org/2000/svg">
+            <svg
+              aria-hidden="true"
+              className="absolute inset-0 w-full h-full opacity-15"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <rect x="0" y="30%" width="100%" height="4" fill="#d4ff00" />
               <rect x="0" y="56%" width="100%" height="6" fill="#909090" />
               <rect x="0" y="76%" width="100%" height="3" fill="#d4ff00" />
               <rect x="25%" y="0" width="4" height="100%" fill="#909090" />
               <rect x="55%" y="0" width="6" height="100%" fill="#d4ff00" />
               <rect x="80%" y="0" width="3" height="100%" fill="#909090" />
-              <rect x="3%"  y="32%" width="20%" height="21%" fill="#27272a" />
+              <rect x="3%" y="32%" width="20%" height="21%" fill="#27272a" />
               <rect x="27%" y="32%" width="26%" height="21%" fill="#1a1a1a" />
-              <rect x="3%"  y="58%" width="20%" height="15%" fill="#1a1a1a" />
+              <rect x="3%" y="58%" width="20%" height="15%" fill="#1a1a1a" />
               <rect x="27%" y="58%" width="26%" height="15%" fill="#27272a" />
               <rect x="60%" y="32%" width="18%" height="21%" fill="#27272a" />
               <rect x="60%" y="58%" width="18%" height="15%" fill="#1a1a1a" />
@@ -122,7 +154,9 @@ export function Location() {
 
                 {/* Bubble label */}
                 <div className="relative z-10 px-3 py-1 sm:px-4 sm:py-1.5 rounded-full bg-zinc-800 border border-primary/40 shadow-lg group-hover:border-primary/80 transition-all duration-300">
-                  <span className="text-white text-xs sm:text-sm font-bold whitespace-nowrap">Pato Branco - Paraná</span>
+                  <span className="text-white text-xs sm:text-sm font-bold whitespace-nowrap">
+                    Pato Branco - Paraná
+                  </span>
                 </div>
               </div>
             </div>
@@ -137,10 +171,11 @@ export function Location() {
 
             {/* Attribution */}
             <div className="absolute bottom-2 right-2 sm:bottom-3 sm:right-3 px-1.5 py-0.5 sm:px-2 sm:py-1 rounded bg-zinc-800/80 border border-border">
-              <span className="text-slate-400 text-[10px] sm:text-xs">Clique para abrir no Google Maps</span>
+              <span className="text-slate-400 text-[10px] sm:text-xs">
+                Clique para abrir no Google Maps
+              </span>
             </div>
           </a>
-
         </div>
       </div>
     </section>

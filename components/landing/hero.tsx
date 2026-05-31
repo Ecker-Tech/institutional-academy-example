@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { Phone } from 'lucide-react';
-import Image from 'next/image';
+import { Phone } from "lucide-react";
+import Image from "next/image";
 
 export function Hero() {
   return (
@@ -16,7 +16,7 @@ export function Hero() {
       />
 
       {/* Dark gradient overlay for legibility */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/75 to-zinc-950" />
+      <div className="absolute inset-0 bg-linear-to-b from-black/90 via-black/75 to-zinc-950" />
 
       {/* Centered content */}
       <div className="relative z-10 flex flex-col items-center text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto space-y-5 sm:space-y-8">
@@ -24,10 +24,11 @@ export function Hero() {
           Treine na Melhor Academia do Bairro
         </h1>
         <p className="text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed max-w-2xl">
-          Estrutura moderna, ambiente familiar e professores focados no seu resultado.
+          Estrutura moderna, ambiente familiar e professores focados no seu
+          resultado.
         </p>
         <a
-          href={`https://wa.me/5511999999999?text=${encodeURIComponent('Olá! Quero aproveitar a oferta do site e garantir minha vaga na Elite Academia!')}`}
+          href={`https://wa.me/5511999999999?text=${encodeURIComponent("Olá! Quero aproveitar a oferta do site e garantir minha vaga na Elite Academia!")}`}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 sm:gap-3 px-6 py-3 sm:px-10 sm:py-4 bg-primary text-primary-foreground font-bold text-sm sm:text-base md:text-lg rounded-lg hover:shadow-2xl hover:shadow-primary/50 transition-all duration-300 hover:scale-105 cta-pulse-glow"

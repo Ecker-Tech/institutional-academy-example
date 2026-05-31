@@ -60,7 +60,9 @@ export function FreeTrial() {
             </h2>
 
             <p className="text-xl text-foreground/70 mb-8 leading-relaxed">
-              Experimente toda a qualidade e infraestrutura da PULSAR sem nenhum compromisso. Nossa equipe está pronta para recebê-lo(a) e iniciar sua jornada de transformação.
+              Experimente toda a qualidade e infraestrutura da PULSAR sem nenhum
+              compromisso. Nossa equipe está pronta para recebê-lo(a) e iniciar
+              sua jornada de transformação.
             </p>
 
             {/* Benefits List */}
@@ -77,8 +79,10 @@ export function FreeTrial() {
                   variants={itemVariants}
                   className="flex items-center gap-3"
                 >
-                  <CheckCircle className="w-6 h-6 text-primary flex-shrink-0" />
-                  <span className="text-foreground/80 font-medium">{benefit}</span>
+                  <CheckCircle className="w-6 h-6 text-primary shrink-0" />
+                  <span className="text-foreground/80 font-medium">
+                    {benefit}
+                  </span>
                 </motion.div>
               ))}
             </motion.div>
@@ -109,9 +113,7 @@ export function FreeTrial() {
                 size="lg"
                 className="border-foreground/30 text-foreground hover:bg-foreground/10 font-bold"
               >
-                <a href="#planos">
-                  Ver Planos
-                </a>
+                <a href="#planos">Ver Planos</a>
               </Button>
             </motion.div>
           </motion.div>
@@ -125,14 +127,14 @@ export function FreeTrial() {
             viewport={{ once: true, margin: "-100px" }}
           >
             <motion.div
-              className="bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/30 rounded-2xl p-8 text-center"
+              className="bg-linear-to-br from-primary/20 to-primary/5 border border-primary/30 rounded-2xl p-8 text-center"
               whileHover={{ y: -5 }}
             >
               <p className="text-4xl font-bold text-primary mb-2">100%</p>
               <p className="text-foreground/60">Satisfação</p>
             </motion.div>
             <motion.div
-              className="bg-gradient-to-br from-accent/20 to-accent/5 border border-accent/30 rounded-2xl p-8 text-center"
+              className="bg-linear-to-br from-accent/20 to-accent/5 border border-accent/30 rounded-2xl p-8 text-center"
               whileHover={{ y: -5 }}
               transition={{ delay: 0.1 }}
             >
@@ -140,12 +142,16 @@ export function FreeTrial() {
               <p className="text-foreground/60">Mensalidade*</p>
             </motion.div>
             <motion.div
-              className="bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/30 rounded-2xl p-8 text-center col-span-2"
+              className="bg-linear-to-br from-primary/20 to-primary/5 border border-primary/30 rounded-2xl p-8 text-center col-span-2"
               whileHover={{ y: -5 }}
               transition={{ delay: 0.2 }}
             >
-              <p className="text-3xl font-bold text-primary mb-2">Sem Compromisso</p>
-              <p className="text-foreground/60 text-sm">*Na aula experimental</p>
+              <p className="text-3xl font-bold text-primary mb-2">
+                Sem Compromisso
+              </p>
+              <p className="text-foreground/60 text-sm">
+                *Na aula experimental
+              </p>
             </motion.div>
           </motion.div>
         </div>
