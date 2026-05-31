@@ -79,6 +79,11 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  
+  /* Custom animations */
+  --animate-marquee: marquee 25s linear infinite;
+  --animate-fade-in-up: fade-in-up 0.6s ease-out forwards;
+  --animate-bounce-subtle: bounce-subtle 0.6s ease-in-out;
 }
 
 @layer base {
@@ -129,6 +134,35 @@
   }
 }
 
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce-subtle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
 .pulse-glow {
   animation: pulse-glow 2s ease-in-out infinite;
 }
@@ -144,6 +178,18 @@
 
 .infinite-pulse-animation {
   animation: infinite-pulse 2s ease-in-out infinite;
+}
+
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+.animate-bounce-subtle {
+  animation: bounce-subtle 0.6s ease-in-out;
 }
 
 /* Scroll-reveal */
@@ -173,3 +219,13 @@
 .stagger-2 { animation-delay: 100ms; }
 .stagger-3 { animation-delay: 200ms; }
 .stagger-4 { animation-delay: 300ms; }
+
+/* Global smooth transitions for interactive elements */
+a, button, [role="button"] {
+  @apply transition-all duration-300;
+}
+
+/* Card and interactive element hover effects */
+.hover-lift {
+  @apply transition-all duration-300 hover:scale-105 hover:shadow-lg;
+}

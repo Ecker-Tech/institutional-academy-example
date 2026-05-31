@@ -13,10 +13,10 @@ export function Schedule() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-lime-400 mb-4 text-balance">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-lime-400 mb-4 text-balance uppercase font-display">
             Sua Rotina, Seus Horários. Treine Sem Desculpas
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
             Segunda a sexta — estrutura disponível ao longo de todo o dia
           </p>
         </div>
@@ -34,14 +34,14 @@ export function Schedule() {
               <h3 className="text-3xl font-extrabold text-white tracking-tight">
                 Musculação
               </h3>
-              <p className="text-muted-foreground text-base leading-relaxed">
+              <p className="text-slate-300 text-base leading-relaxed">
                 Treine no seu ritmo, sem horário marcado. A sala de musculação fica disponível durante todo o funcionamento da academia.
               </p>
             </div>
             <div className="mt-8 p-5 rounded-lg bg-primary/10 border border-primary/20">
-              <p className="text-sm text-muted-foreground uppercase tracking-wider font-semibold mb-1">Seg – Sex</p>
+              <p className="text-sm text-slate-400 uppercase tracking-wider font-semibold mb-1">Seg – Sex</p>
               <p className="text-4xl font-black text-primary">06:00 – 22:00</p>
-              <p className="text-sm text-muted-foreground mt-2">Sábados: 08:00 – 14:00</p>
+              <p className="text-sm text-slate-400 mt-2">Sábados: 08:00 – 14:00</p>
             </div>
           </div>
 
@@ -51,7 +51,7 @@ export function Schedule() {
               <h3 className="text-3xl font-extrabold text-white tracking-tight">
                 Aulas Coletivas
               </h3>
-              <p className="text-muted-foreground text-sm">Horários fixos — Segunda a Sexta</p>
+              <p className="text-slate-400 text-sm">Horários fixos — Segunda a Sexta</p>
             </div>
 
             {/* Timeline */}
@@ -72,7 +72,7 @@ export function Schedule() {
 
             {/* Saturday notice */}
             <div className="mt-8 p-4 rounded-lg bg-zinc-900 border border-border">
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-slate-400">
                 <span className="text-white font-semibold">Sábados:</span>{' '}
                 Aulas coletivas <span className="text-primary font-semibold">não ocorrem</span>. Musculação funciona das 08:00 às 14:00.
               </p>

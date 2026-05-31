@@ -58,10 +58,10 @@ export function Pricing() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-lime-400 mb-4 text-balance">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-lime-400 mb-4 text-balance uppercase font-display">
             Planos que se adaptam a você
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
             Escolha o plano perfeito para sua jornada. Qualidade premium com preço justo e sem taxas escondidas.
           </p>
         </div>
@@ -137,7 +137,7 @@ export function Pricing() {
                   {plan.features.map((feature, featureIndex) => (
                     <div key={featureIndex} className="flex items-start gap-3">
                       <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-sm text-muted-foreground">{feature}</span>
+                      <span className="text-sm text-slate-300">{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -148,7 +148,7 @@ export function Pricing() {
 
         {/* Additional info */}
         <div className="text-center mt-12">
-          <p className="text-muted-foreground mb-4">
+          <p className="text-slate-300 mb-4">
             Primeira aula experimental gratuita! Sem taxas de inscrição, sem multa por cancelamento.
           </p>
         </div>

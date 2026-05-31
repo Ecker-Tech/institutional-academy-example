@@ -29,36 +29,37 @@ export function TrainingModalities() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-lime-400 mb-4 text-balance">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-lime-400 mb-4 text-balance uppercase font-display">
             Escolha o Seu Desafio e Mude o Seu Corpo
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
             Treinos especializados com o melhor da tecnologia e orientação profissional
           </p>
         </div>
 
         {/* Modalities Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {modalities.map((modality) => (
+          {modalities.map((modality, index) => (
             <div
               key={modality.id}
-              className="group relative h-96 rounded-xl overflow-hidden"
+              className="group relative h-96 rounded-xl overflow-hidden hover:scale-105 transition-all duration-300 cursor-pointer animate-fade-in-up"
+              style={{ animationDelay: `${index * 100}ms` }}
             >
               {/* Background image */}
               <Image
                 src={modality.image}
                 alt={modality.title}
                 fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
               />
 
               {/* Inner shadow overlay — darkens bottom for legibility */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:from-black/90 transition-all duration-300" />
 
               {/* Title at bottom-left */}
               <div className="absolute bottom-0 left-0 right-0 p-6">
-                <h3 className="text-2xl font-bold text-white">{modality.title}</h3>
-                <p className="text-white/70 text-sm mt-1 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <h3 className="text-2xl font-bold text-white group-hover:text-primary transition-colors duration-300">{modality.title}</h3>
+                <p className="text-slate-300 text-sm mt-1 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   {modality.description}
                 </p>
               </div>

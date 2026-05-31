@@ -1,6 +1,6 @@
 import { MapPin, Navigation, ExternalLink } from 'lucide-react';
 
-const mapsUrl = 'https://google.com';
+const mapsUrl = 'https://www.google.com/maps/search/?api=1&query=Pato+Branco+Parana';
 
 export function Location() {
   return (
@@ -8,11 +8,11 @@ export function Location() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-lime-400 mb-4 text-balance">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-lime-400 mb-4 text-balance uppercase font-display">
             A Elite está pertinho de você. Venha nos conhecer!
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Estamos no coração de Pato Branco — fácil de encontrar e de chegar
+          <p className="text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+            Estamos no coração de Pato Branco - Paraná — fácil de encontrar e de chegar
           </p>
         </div>
 
@@ -20,12 +20,12 @@ export function Location() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
 
           {/* Left Column — Address details */}
-          <div className="flex flex-col justify-between rounded-xl border border-primary/30 bg-card p-8 gap-8">
+          <div className="flex flex-col justify-between rounded-xl border border-primary/30 bg-card p-8 gap-8 hover:border-primary/60 transition-all duration-300 animate-fade-in-up">
             <div className="space-y-6">
-              <h3 className="text-3xl font-extrabold text-white tracking-tight">
+              <h3 className="text-3xl font-extrabold text-white tracking-tighter font-display">
                 Venha Treinar Conosco
               </h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-slate-300 leading-relaxed">
                 A Elite Academia fica em um ponto de fácil acesso no bairro, com estacionamento próprio e próxima ao transporte público. Você não tem desculpa para não treinar!
               </p>
 
@@ -35,14 +35,15 @@ export function Location() {
                   <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="text-white font-semibold">Rua Exemplo, 1234 — Sala 01</p>
-                    <p className="text-muted-foreground text-sm">Bairro Centro, Cidade — SP</p>
-                    <p className="text-muted-foreground text-sm">CEP: 00000-000</p>
+                    <p className="text-slate-300 text-sm">Bairro Centro</p>
+                    <p className="text-slate-300 text-sm font-semibold">Pato Branco - Paraná</p>
+                    <p className="text-slate-400 text-sm">CEP: 85501-000</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <Navigation className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                  <p className="text-muted-foreground text-sm">
-                    A 5 min da Estação de Metrô XYZ — estacionamento gratuito no local
+                  <p className="text-slate-300 text-sm">
+                    Estacionamento gratuito no local — Fácil acesso pelo centro da cidade
                   </p>
                 </div>
               </div>
@@ -53,16 +54,21 @@ export function Location() {
               href={mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-3 w-full py-3 px-6 rounded-lg border-2 border-primary text-primary font-semibold hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:shadow-lg hover:shadow-primary/30"
+              className="inline-flex items-center justify-center gap-3 w-full py-3 px-6 rounded-lg border-2 border-primary text-primary font-semibold hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:shadow-lg hover:shadow-primary/30 hover:scale-105"
             >
               <MapPin className="w-5 h-5" />
               Abrir no Google Maps
             </a>
           </div>
 
-          {/* Right Column — Stylized dark map placeholder */}
-          <div className="relative rounded-xl overflow-hidden h-[400px] border border-primary/20 bg-zinc-900">
-
+          {/* Right Column — Interactive Map Placeholder (clickable) */}
+          <a
+            href={mapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative rounded-xl overflow-hidden h-[400px] border border-primary/20 bg-zinc-900 block group cursor-pointer hover:border-primary/60 transition-all duration-300 animate-fade-in-up"
+            style={{ animationDelay: '100ms' }}
+          >
             {/* Grid pattern */}
             <svg
               aria-hidden="true"
@@ -95,7 +101,7 @@ export function Location() {
 
             {/* Radial glow behind pin */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div className="w-44 h-44 rounded-full bg-primary/20 blur-3xl" />
+              <div className="w-44 h-44 rounded-full bg-primary/20 blur-3xl group-hover:bg-primary/30 transition-all duration-300" />
             </div>
 
             {/* Pin + label */}
@@ -106,22 +112,30 @@ export function Location() {
                 <span className="absolute w-11 h-11 rounded-full bg-primary/35" />
 
                 {/* Pin icon */}
-                <div className="relative z-10 p-3 rounded-full bg-primary shadow-2xl shadow-primary/70 mb-1">
+                <div className="relative z-10 p-3 rounded-full bg-primary shadow-2xl shadow-primary/70 mb-1 group-hover:scale-110 transition-transform duration-300">
                   <MapPin className="w-7 h-7 text-primary-foreground fill-primary-foreground" />
                 </div>
 
                 {/* Bubble label */}
-                <div className="relative z-10 px-4 py-1.5 rounded-full bg-zinc-800 border border-primary/40 shadow-lg">
-                  <span className="text-white text-sm font-bold whitespace-nowrap">Elite Academia</span>
+                <div className="relative z-10 px-4 py-1.5 rounded-full bg-zinc-800 border border-primary/40 shadow-lg group-hover:border-primary/80 transition-all duration-300">
+                  <span className="text-white text-sm font-bold whitespace-nowrap">Pato Branco - Paraná</span>
                 </div>
+              </div>
+            </div>
+
+            {/* Hover overlay */}
+            <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-all duration-300 flex items-center justify-center">
+              <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute bottom-16 flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-primary-foreground font-semibold">
+                <ExternalLink className="w-4 h-4" />
+                Clique para abrir no Google Maps
               </div>
             </div>
 
             {/* Attribution */}
             <div className="absolute bottom-3 right-3 px-2 py-1 rounded bg-zinc-800/80 border border-border">
-              <span className="text-muted-foreground text-xs">Mapa ilustrativo</span>
+              <span className="text-slate-400 text-xs">Clique para abrir no Google Maps</span>
             </div>
-          </div>
+          </a>
 
         </div>
       </div>

@@ -63,7 +63,7 @@ function FAQItem({
 
       {isOpen && (
         <div className="px-6 py-4 bg-background/50 border-t border-primary/20">
-          <p className="text-muted-foreground leading-relaxed">{answer}</p>
+          <p className="text-slate-300 leading-relaxed">{answer}</p>
         </div>
       )}
     </div>
@@ -76,10 +76,10 @@ export function FAQ() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-lime-400 mb-4 text-balance">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-lime-400 mb-4 text-balance uppercase font-display">
             Dúvidas Frequentes
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-lg text-slate-300 leading-relaxed">
             Encontre respostas para as perguntas mais comuns sobre Elite Academia
           </p>
         </div>
@@ -98,7 +98,7 @@ export function FAQ() {
 
         {/* Contact CTA */}
         <div className="mt-12 text-center">
-          <p className="text-muted-foreground mb-6">Não encontrou sua dúvida?</p>
+          <p className="text-slate-300 mb-6">Não encontrou sua dúvida?</p>
           <a
             href="https://wa.me/5511999999999?text=Olá!%20Tenho%20uma%20dúvida%20sobre%20a%20Elite%20Academia."
             target="_blank"

@@ -39,10 +39,10 @@ export function GymStructure() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-lime-400 mb-4 text-balance">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-lime-400 mb-4 text-balance uppercase font-display">
             Ambiente de Elite para o Seu Máximo Rendimento
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
             Espaços modernos e bem cuidados projetados para o seu melhor desempenho
           </p>
         </div>
@@ -52,17 +52,18 @@ export function GymStructure() {
           {photos.map((photo, index) => (
             <div
               key={index}
-              className="group relative h-64 rounded-xl overflow-hidden bg-card"
+              className="group relative h-64 rounded-xl overflow-hidden bg-card hover:scale-105 transition-all duration-300 animate-fade-in-up cursor-pointer"
+              style={{ animationDelay: `${index * 100}ms` }}
             >
               <Image
                 src={photo.src}
                 alt={photo.alt}
                 fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
               />
               {/* Label overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-              <span className="absolute bottom-4 left-4 text-white font-semibold text-sm tracking-wide">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent group-hover:from-black/80 transition-all duration-300" />
+              <span className="absolute bottom-4 left-4 text-white font-semibold text-sm tracking-wide group-hover:text-primary transition-colors duration-300">
                 {photo.label}
               </span>
             </div>
