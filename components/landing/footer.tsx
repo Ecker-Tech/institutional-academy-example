@@ -21,10 +21,7 @@ export function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10 md:gap-12 mb-8 sm:mb-12">
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-1 space-y-3 sm:space-y-4">
-            <Link
-              href="#"
-              className="inline-flex items-center gap-2 sm:gap-3 group"
-            >
+            <div className="inline-flex items-center gap-2 sm:gap-3 group">
               <div className="w-8 h-8 sm:w-10 sm:h-10 relative">
                 <Image
                   src="/favicon.png"
@@ -37,7 +34,7 @@ export function Footer() {
               <span className="text-base sm:text-lg font-bold italic text-primary">
                 ELITE Academia
               </span>
-            </Link>
+            </div>
             <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
               Ambiente familiar, professores certificados, equipamentos modernos
               e preço justo.
@@ -75,10 +72,8 @@ export function Footer() {
             </h4>
             <ul className="space-y-1.5 sm:space-y-2">
               {[
-                { label: "Sobre Nós", href: "#" },
+                { label: "Sobre Nós", href: "#structure" },
                 { label: "FAQ", href: "#faq" },
-                { label: "Política de Privacidade", href: "#" },
-                { label: "Termos de Serviço", href: "#" },
               ].map((item) => (
                 <li key={item.label}>
                   <a
@@ -139,16 +134,15 @@ export function Footer() {
           {/* Social Links */}
           <div className="flex items-center gap-3 sm:gap-4">
             {[
-              { icon: Facebook, href: "#" },
-              { icon: Instagram, href: "#" },
-              { icon: Twitter, href: "#" },
-              { icon: Linkedin, href: "#" },
+              { icon: Facebook, href: "https://www.facebook.com/" },
+              { icon: Instagram, href: "https://www.instagram.com/" },
             ].map((social, index) => {
               const Icon = social.icon;
               return (
                 <a
                   key={index}
                   href={social.href}
+                  target="_blank"
                   className="p-1.5 sm:p-2 bg-card hover:bg-primary hover:text-primary-foreground rounded-lg transition-all duration-300"
                 >
                   <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
